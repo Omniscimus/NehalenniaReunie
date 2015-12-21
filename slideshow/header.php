@@ -28,12 +28,12 @@
                document.getElementById("displaypanel").src = slideArray[i].src;
                
                //Nieuw afbeelding na 3 sec
-               setTimeout("transform()",3000)
+               setTimeout("transform()",3000);
            }
         //-->
         </script>
     </head>
-    <body onload="transform();">
-        <img src="./photos/foto1.PNG" id="displaypanel"/>
+    <body onload="transform();" style="height: 300px; width: 100%; overflow: hidden; margin: 0; padding: 0;">
+        <img src="./photos/foto1.PNG" id="displaypanel" alt="foto" />
     </body>
 </html>

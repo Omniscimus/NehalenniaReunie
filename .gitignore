@@ -1,2 +1,3 @@
 # .gitignore voor NehalenniaReunie
 nbproject/
+.DS_Store
