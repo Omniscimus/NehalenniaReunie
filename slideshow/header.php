@@ -11,11 +11,12 @@
             // PHP gaat verzorgen welke afbeeldingen.
             var slideArray = new Array();
             slideArray[0] = new Image();
-            slideArray[0].src = "./photos/foto1.PNG";
+//            slideArray[0].src = "./photos/foto1.PNG";
+            slideArray[0].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg";
             slideArray[1] = new Image();
-            slideArray[1].src = "./photos/foto2.PNG";
+            slideArray[1].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1501a.jpg";
             slideArray[2] = new Image();
-            slideArray[2].src = "./photos/foto3.PNG";
+            slideArray[2].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1107a.jpg";
             
             // Deze functie verzorgt het verwisselen van de afbeeldingen.
            function transform() 
