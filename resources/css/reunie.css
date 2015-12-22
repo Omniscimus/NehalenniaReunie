@@ -1,0 +1,19 @@
+/*
+School colors:  green-> #14767F
+                red-> #c40d4c
+*/
+
+@import url('/resources/css/foundation.min.css');
+
+.top-bar {
+  background-color: white;
+  border-bottom: 5px solid #c40d4c;
+}
+
+.top-bar ul {
+  background-color: transparent;
+}
+
+.top-bar li a {
+  color: #14767F;
+}
