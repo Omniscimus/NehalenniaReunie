@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <?php include 'includes.php'; ?>
     <title>Contact</title>
   </head>
   <body>

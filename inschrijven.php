@@ -11,7 +11,7 @@ if (is_string($_POST["achternaam"])) {
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <?php include 'includes.php'; ?>
     <title>Inschrijven</title>
   </head>
   <body>
