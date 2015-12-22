@@ -26,7 +26,7 @@
                {
                    i = 0;
                }
-               document.getElementById("displaypanel").src = slideArray[i].src;
+               document.getElementById("displaypanel").style.backgroundImage = "url('" + slideArray[i].src + "')";
                
                //Nieuw afbeelding na 3 sec
                setTimeout("transform()",3000);
@@ -34,7 +34,7 @@
         //-->
         </script>
     </head>
-    <body onload="transform();" style="height: 300px; width: 100%; overflow: hidden; margin: 0; padding: 0;">
-        <img src="./photos/foto1.PNG" id="displaypanel" alt="foto" />
+    <body onload="transform();" style="margin: 0;">
+        <div id="displaypanel"  alt="foto" style="height: 300px; width: 100%; padding: 0; background-size: cover; background-position: 50% 100%;"/>
     </body>
 </html>
