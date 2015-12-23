@@ -13,11 +13,19 @@ div.panel
 {
     animation-name: animfadein;
     animation-duration: 1s;
+    -webkit-animation-name: animfadein;
+    -webkit-animation-duration: 1s;
+    -moz-animation-name: animfadein;
+    -moz-animation-duration: 1s;
 }
 .fadeout
 {
     animation-name: animfadeout;
     animation-duration: 1s;
+    -webkit-animation-name: animfadeout;
+    -webkit-animation-duration: 1s;
+    -moz-animation-name: animfadeout;
+    -moz-animation-duration: 1s;
 }
 @keyframes animfadein
 {
