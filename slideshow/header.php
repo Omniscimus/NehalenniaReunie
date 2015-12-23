@@ -2,6 +2,7 @@
     <head>
         <title>Slideshow</title>
         <link rel="stylesheet" type="text/css" href="animation.css"/>
+        <!--optimised for: Firefox/Chrome-->
         <!-- deze pagina komt (denk ik) in een frame. Kan ook direct op hoofdpagina geplaatst worden. -->
         <script type="text/javascript">
         <!--
@@ -34,6 +35,7 @@
                 div2.style.backgroundImage = "url('" + slideArray[i + 1].src + "')";
                 div2.classList.remove("fadeout");
                 div2.classList.add("fadein");
+                div2.style.opacity = 1;
                
                 //Nieuw afbeelding na 3 sec
                 setTimeout("transform2();",3000);
@@ -45,6 +47,7 @@
                 div1.style.backgroundImage = "url('" + slideArray[i].src + "')";
                 div2.classList.remove("fadein");
                 div2.classList.add("fadeout");
+                div2.style.opacity = 0;
                 
                 //Nieuw afbeelding na 3 sec
                 setTimeout("transform1();",3000);
