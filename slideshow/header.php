@@ -12,14 +12,26 @@
             // Bij het laden een Array met afbeeldingen laden;
             // PHP gaat verzorgen welke afbeeldingen.
             var slideArray = new Array();
-            slideArray[0] = new Image();
-            slideArray[0].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg";
-            slideArray[1] = new Image();
-            slideArray[1].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1501a.jpg";
-            slideArray[2] = new Image();
-            slideArray[2].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1107a.jpg";
-            slideArray[3] = new Image();
-            slideArray[3].src = "http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1108a.jpg";
+            <?php
+                $urls  = Array("http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1506a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1501a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1108a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1500a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1510a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1109a.jpg");
+                $urlslength = count($urls) - 1;
+                // deze variabele wordt een lijst van alle in een map beschikbare
+                // (foto) bestanden. Hiervan worden er willekeurig 4 (of 6 of 8 of etc...) gekozen.
+                
+                $stored = 0;
+                while ($stored < 4)
+                {
+                    $rnd = rand(0, $urlslength);
+                    echo "slideArray[$stored] = new Image();\n";
+                    echo "slideArray[$stored].src = '".$urls[$rnd]."';\n";
+                    
+                    unset($urls[$rnd]);
+                    $urls = array_values($urls);
+                    $urlslength = count($urls) - 1;
+                    
+                    $stored++;
+                }
+            ?>
             
             
             //De functie transform1 en transform2() wisselen elkaar af. Er zijn twee divs, waarvan de voorste afwisselend in/uit fade.
