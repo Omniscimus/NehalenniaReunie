@@ -12,5 +12,10 @@ return array(
     "e-mail" => "info@nehalenniareunie.nl",
     "telefoon" => "0123-456789",
     
-    "facebook-link" => "http://www.facebook.com/nehalenniareunie"
+    "facebook-link" => "http://www.facebook.com/nehalenniareunie",
+    
+    "veelgestelde-vragen" => array(
+        "Is dit een vraag?" => "Ja!",
+        "Is dit nog een vraag?" => "Misschien..."
+    )
 );
