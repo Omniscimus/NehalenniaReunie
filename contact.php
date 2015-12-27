@@ -12,7 +12,6 @@
     ?>
 
     <div>
-      <?php $config = include 'config.php'; ?>
       <h1>Contactinformatie</h1>
       <p>
         U kunt contact opnemen met de organisatie van de reünie door een e-mail
