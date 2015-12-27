@@ -37,7 +37,7 @@
         <div style="text-align: center;">
           <a href="<?php echo $config["facebook-link"]; ?>" target="_blank">
             <img src="resources/img/fb.png" alt="Facebook"
-                 style="width: 10%; height: auto;"/>
+                 style="width: 10%; min-width: 114px; height: auto;"/>
           </a>
         </div>
       </div>
