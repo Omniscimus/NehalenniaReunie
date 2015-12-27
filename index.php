@@ -34,6 +34,12 @@
           parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies.
           Mauris vitae nisi at sem facilisis semper ac in est.
         </p>
+        <div style="text-align: center;">
+          <a href="<?php echo $config["facebook-link"]; ?>" target="_blank">
+            <img src="resources/img/fb.png" alt="Facebook"
+                 style="width: 10%; height: auto;"/>
+          </a>
+        </div>
       </div>
 
     </div>

@@ -10,5 +10,7 @@ return array(
     "schoolnaam" => "Nehalennia Stedelijke Scholengemeenschap",
     "postadres" => "Postbus 12, 3456 AB Middelburg",
     "e-mail" => "info@nehalenniareunie.nl",
-    "telefoon" => "0123-456789"
+    "telefoon" => "0123-456789",
+    
+    "facebook-link" => "http://www.facebook.com/nehalenniareunie"
 );
