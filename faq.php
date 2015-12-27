@@ -11,12 +11,14 @@
     include 'menu.php';
     ?>
 
-    <div>
-      <p>Dit is de pagina met veelgestelde vragen.</p>
-      <ul>
-        <li>Vraag</li>
-        <li>Tekst</li>
-      </ul>
+    <div class="row">
+      <div class="small-12 columns">
+        <p>Dit is de pagina met veelgestelde vragen.</p>
+        <ul>
+          <li>Vraag</li>
+          <li>Tekst</li>
+        </ul>
+      </div>
     </div>
 
     <?php

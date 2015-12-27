@@ -11,19 +11,21 @@
     include 'menu.php';
     ?>
 
-    <div>
-      <h1>Contactinformatie</h1>
-      <p>
-        U kunt contact opnemen met de organisatie van de reünie door een e-mail
-        te sturen naar het adres
-        <a href="mailto:<?php echo $config["e-mail"] ?>">
-            <?php echo $config["e-mail"] ?></a>.
-      </p>
-      <p>
-        <?php echo $config["schoolnaam"] ?><br />
-        <?php echo $config["postadres"] ?><br />
-        tel. <?php echo $config["telefoon"] ?>
-      </p>      
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Contactinformatie</h1>
+        <p>
+          U kunt contact opnemen met de organisatie van de reünie door een e-mail
+          te sturen naar het adres
+          <a href="mailto:<?php echo $config["e-mail"] ?>">
+          <?php echo $config["e-mail"] ?></a>.
+        </p>
+        <p>
+          <?php echo $config["schoolnaam"] ?><br />
+          <?php echo $config["postadres"] ?><br />
+          tel. <?php echo $config["telefoon"] ?>
+        </p>      
+      </div>
     </div>
 
     <?php
