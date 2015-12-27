@@ -21,9 +21,11 @@
           <?php echo $config["e-mail"] ?></a>.
         </p>
         <p>
-          <?php echo $config["schoolnaam"] ?><br />
-          <?php echo $config["postadres"] ?><br />
-          tel. <?php echo $config["telefoon"] ?>
+          <?php
+          foreach ($config["contactgegevens"] as $gegeven) {
+              echo $gegeven . "<br />";
+          }
+          ?>
         </p>      
       </div>
     </div>
