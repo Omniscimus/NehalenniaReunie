@@ -32,9 +32,11 @@ if (is_string($_POST["achternaam"])) {
                 <p>Gelieve alle velden in te vullen.</p>
             <?php endif; ?>
             <form action="inschrijven.php" method="POST">
-              Voornaam: * <input type="text" name="voornaam" /><br />
-              Achternaam: * <input type="text" name="achternaam" /><br />
-              <input type="submit" />
+              Voornaam: <i style="color: #c40d4c">*</i>
+              <input type="text" name="voornaam" class="name-input" />
+              Achternaam: <i style="color: #c40d4c">*</i>
+              <input type="text" name="achternaam" class="name-input" /><br />
+              <input type="submit" value="Versturen" class="button" />
             </form>
 
         <?php elseif ($input_valid === 2): ?>

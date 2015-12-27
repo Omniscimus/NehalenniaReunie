@@ -17,3 +17,8 @@ School colors:  green-> #14767F
 .top-bar li a {
   color: #14767F;
 }
+
+.name-input {
+    width: 30%;
+    min-width: 200px;
+}
