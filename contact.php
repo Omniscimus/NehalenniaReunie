@@ -10,10 +10,10 @@
     $pagina = "contact";
     include 'menu.php';
     ?>
-
+    <div class="padding-top-1"></div>
     <div class="row">
-      <div class="small-12 columns">
-        <h1>Contactinformatie</h1>
+      <div class="medium-10 medium-offset-1 columns">
+        <h4>Contactinformatie</h4>
         <p>
           U kunt contact opnemen met de organisatie van de reünie door een e-mail
           te sturen naar het adres

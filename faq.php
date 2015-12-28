@@ -7,21 +7,22 @@
   <body>
 
     <?php
-    $pagina = "faq";
+    $pagina = "Veelgestelde vragen";
     include 'menu.php';
     ?>
 
+    <div class="padding-top-1"></div>
     <div class="row">
-      <div class="small-12 columns">
-        <h1>Veelgestelde vragen</h1>
+      <div class="medium-10 medium-offset-1 columns">
+        <h4>Veelgestelde vragen</h4>
         <p>
           Op deze pagina kunt u antwoorden vinden op een aantal vragen aangaande
           de reünie. Mocht u na het lezen van deze pagina nog vragen hebben, dan
           kunt u <a href="contact.php">contact opnemen</a> met ons.
         </p>
         <?php foreach ($config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
-        <h4><?php echo $vraag; ?></h4>
-        <p><?php echo $antwoord; ?></p>
+        <p><h5><?php echo $vraag; ?></h5>
+        <?php echo $antwoord; ?></p>
         <?php endforeach; ?>
         <h3></h3>
       </div>
