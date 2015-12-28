@@ -50,3 +50,7 @@ footer {
   padding: 0.5em;
   border-top: 5px solid #c40d4c;
 }
+
+footer a {
+  color: #14767f;
+}
