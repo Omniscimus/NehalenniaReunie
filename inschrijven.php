@@ -29,10 +29,10 @@ if (is_string($_POST["achternaam"])) {
           <div class="row">
             <div class="medium-6 large-8 columns left">
               <p>
-                Hier kunt u zich inschrijven voor de reünie. Dit houd een
+                Hier kunt u zich inschrijven voor de reünie. Dit houdt een
                 aantal dingen in. blablablaaaa.
 
-                Er zijn een aantal vereisten blablablaaa
+                Er is een aantal vereisten blablablaaa
                 <ul>
                   <li>Je moet >4 jaar zijn</li>
                   <li>Je moet van koffie houden</li>
