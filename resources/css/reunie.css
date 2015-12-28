@@ -44,3 +44,9 @@ School colors:  green-> #14767f
 .padding-top-2 {
   padding-top: 2em;
 }
+
+footer {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-top: 5px solid #c40d4c;
+}

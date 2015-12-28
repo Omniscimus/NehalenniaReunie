@@ -15,7 +15,6 @@
 </script>
 <div id="footer">
   <footer style="text-align: center;">
-    <hr />
     Dit is een website van <a href="http://pr.nehalennia.nl/">SG Nehalennia</a>.
   </footer>
 </div>
