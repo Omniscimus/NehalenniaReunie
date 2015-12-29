@@ -44,7 +44,7 @@
         }
         </style>
   </head>
-  <body>
+  <body onload="initializemap();">
 
     <?php
     $pagina = "contact";
