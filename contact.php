@@ -66,12 +66,14 @@
               echo $gegeven . "<br />";
           }
           ?>
-        </p>      
+        </p>
+        <p>
+          <h5>Kaart</h5>
+          <div id="map">De kaart kon helaas niet geladen worden...</div>
+        </p>
       </div>
     </div>
     
-    <h2>Kaart</h2>
-    <div id="map">De kaart kon helaas niet geladen worden...</div>
 
     <?php
     include 'footer.php';
