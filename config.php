@@ -7,6 +7,9 @@ return array(
     "mysql-password" => "",
     "mysql-database" => "reunie",
     
+    "captcha-sitekey" => "",
+    "captcha-secretkey" => "",
+    
     "facebook-link" => "http://www.facebook.com/nehalenniareunie",
     
     "veelgestelde-vragen" => array(
