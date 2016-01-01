@@ -87,6 +87,10 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                         Achternaam: <i style="color: #c40d4c">*</i>
                         <input type="text" name="achternaam" class="name-input" />
                       </label>
+                      <label>
+                        Examenjaar:
+                        <input type="number" name="examenjaar" class="name-input" value="1985" />
+                      </label>
                       <div class="g-recaptcha" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
                       <div class="padding-top-1"></div>
                       <input type="submit" value="Versturen" class="button"
@@ -99,9 +103,13 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                   <?php
                   require_once 'MySQL_Manager.php';
                   $mysql = new MySQL_Manager();
-                  $mysql->connect();
-                  $mysql->insertNewSubscription($_POST["voornaam"], $_POST["achternaam"]);
-                  $mysql->closeConnection();
+                  try {
+                      $mysql->connect();
+                      $mysql->insertNewSubscription($_POST["voornaam"], $_POST["achternaam"], $_POST["examenjaar"]);
+                      $mysql->closeConnection();
+                  } catch (\Exception $e) {
+                      echo $e->getMessage();
+                  }
                   ?>
                   <p>Bedankt voor uw inschrijving!</p>
               <?php endif; ?>
