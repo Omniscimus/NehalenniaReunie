@@ -10,6 +10,8 @@ return array(
     "captcha-sitekey" => "",
     "captcha-secretkey" => "",
     
+    "results-password" => "12345",
+    
     "facebook-link" => "http://www.facebook.com/nehalenniareunie",
     
     "veelgestelde-vragen" => array(

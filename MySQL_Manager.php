@@ -47,5 +47,9 @@ class MySQL_Manager {
         $statement->bind_param("ssi", $voornaam, $achternaam, $examenjaar);
         $statement->execute();
     }
+    
+    function getResults() {
+        return $this->connection->query("SELECT voornaam, achternaam, examenjaar FROM inschrijvingen;");
+    }
 
 }
