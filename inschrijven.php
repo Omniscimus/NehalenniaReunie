@@ -67,7 +67,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
               <?php if ($input_valid < 2 || !$captcha_valid): ?>
 
                   <h5>Schrijf u in voor de reünie:</h5>
-                  <?php if (!$captcha_valid): ?>
+                  <?php if (!$captcha_valid && $input_valid !== 0): ?>
                       <p>
                         U bent niet geregistreerd vanwege een verkeerd
                         CAPTCHA-resultaat. Probeert u het alstublieft nog eens.
