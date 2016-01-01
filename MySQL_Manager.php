@@ -48,6 +48,11 @@ class MySQL_Manager {
         $statement->execute();
     }
     
+    /**
+     * Geeft de resultaten van alle inschrijvingen.
+     * 
+     * @return mysqli_result de gegevens van de ingeschreven personen
+     */
     function getResults() {
         return $this->connection->query("SELECT voornaam, achternaam, examenjaar FROM inschrijvingen;");
     }
