@@ -49,7 +49,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
         <h4>Inschrijven</h4>
 
           <div class="row">
-            <div class="medium-6 large-8 columns left">
+            <div class="medium-6 large-8 columns left field">
               <p>
                 Hier kunt u zich inschrijven voor de reünie. Dit houdt een
                 aantal dingen in. blablablaaaa.
@@ -62,7 +62,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 </ul>
               </p>
             </div>
-            <div class="medium-6 large-4 columns right">
+            <div class="medium-6 large-4 columns right field">
 
               <?php if ($input_valid < 2 || !$captcha_valid): ?>
 

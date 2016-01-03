@@ -53,24 +53,26 @@
     <div class="padding-top-1"></div>
     <div class="row">
       <div class="medium-10 medium-offset-1 columns">
-        <h4>Contactinformatie</h4>
-        <p>
-          U kunt contact opnemen met de organisatie van de reünie door een e-mail
-          te sturen naar het adres
-          <a href="mailto:<?php echo $config["e-mail"] ?>">
-          <?php echo $config["e-mail"] ?></a>.
-        </p>
-        <p>
-          <?php
-          foreach ($config["contactgegevens"] as $gegeven) {
+        <div class="small-12 columns field">
+          <h4>Contactinformatie</h4>
+          <p>
+            U kunt contact opnemen met de organisatie van de reünie door een e-mail
+            te sturen naar het adres
+            <a href="mailto:<?php echo $config["e-mail"] ?>">
+              <?php echo $config["e-mail"] ?></a>.
+          </p>
+          <p>
+            <?php
+            foreach ($config["contactgegevens"] as $gegeven) {
               echo $gegeven . "<br />";
-          }
-          ?>
-        </p>
-        <p>
-          <h5>Kaart</h5>
-          <div id="map">De kaart kon helaas niet geladen worden...</div>
-        </p>
+            }
+            ?>
+          </p>
+        </div>
+        <div class="small-12 columns field" style="padding: 0">
+          <div id="map">De kaart kon helaas niet geladen
+            worden...</div>
+        </div>
       </div>
     </div>
     

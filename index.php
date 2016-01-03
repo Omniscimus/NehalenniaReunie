@@ -18,7 +18,7 @@
       <div class="row">
         <div class="medium-10 medium-offset-1 columns">
 
-          <p>
+          <p class="field">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
             lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam
             viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent
