@@ -69,7 +69,7 @@
             ?>
           </p>
         </div>
-        <div class="small-12 columns field" style="padding: 0">
+        <div class="small-12 columns field" style="padding: 0;">
           <div id="map">De kaart kon helaas niet geladen
             worden...</div>
         </div>

@@ -11,7 +11,7 @@
       include 'menu.php';
       ?>
 
-      <iframe class="slideshow" src="slideshow/header.php" style="width: 100%; height: 300px;" >
+      <iframe class="slideshow field" src="slideshow/header.php" style="width: 100%; height: 300px;" >
         De slideshow kon niet geladen worden omdat uw browser geen iframes accepteert.
       </iframe>
 
