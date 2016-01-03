@@ -37,7 +37,7 @@
         <style type="text/css">
         div#map
         {
-            width: 700px;
+            width: 100%;
             height: 400px;
             background-color: #DDDDDD;
             padding: 20px;
