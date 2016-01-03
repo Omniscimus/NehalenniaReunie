@@ -5,6 +5,7 @@ School colors:  green-> #14767f
 
 @import url('/resources/css/foundation.min.css');
 
+/* Top bar css */
 .top-bar {
   background-color: white;
   border-bottom: 5px solid #c40d4c;
@@ -31,6 +32,7 @@ School colors:  green-> #14767f
     min-width: 200px;
 }
 
+/* Page css */
 .slideshow {
   border: 0;
   width: 100%;
@@ -45,6 +47,7 @@ School colors:  green-> #14767f
   padding-top: 2em;
 }
 
+/* Footer css */
 footer {
   margin-top: 1em;
   padding: 0.5em;
