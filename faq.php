@@ -25,7 +25,9 @@
 
         </div>
         <?php foreach ($config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
-        <div class="small-12 columns field"><p><h5><?php echo $vraag; ?></h5>
+        <div class="small-12 medium-6 large-4 columns field"><p><h5><?php echo
+            $vraag;
+            ?></h5>
         <?php echo $antwoord; ?></p></div>
         <?php endforeach; ?>
         <h3></h3>
