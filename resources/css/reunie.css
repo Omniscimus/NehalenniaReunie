@@ -27,12 +27,27 @@ School colors:  green-> #14767f
   color: #c40d4c;
 }
 
-.name-input {
-    width: 30%;
-    min-width: 200px;
+.top-bar .scroller ul.menu {
+  overflow: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.top-bar .scroller.ul.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.top-bar .scroller ul.menu li {
+  display: inline-block;
 }
 
 /* Page css */
+.name-input {
+  width: 30%;
+  min-width: 200px;
+}
+
 .slideshow {
   border: 0;
   width: 100%;
