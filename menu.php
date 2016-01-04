@@ -26,9 +26,6 @@
           ?>
           </div>
         </ul>
-        <!--    --><?php
-        //    echo "<p>Dit is het menu van de pagina '$pagina'.</p>"
-        //    ?>
       </div>
     </div>
   </div>
