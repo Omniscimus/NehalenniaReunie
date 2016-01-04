@@ -46,7 +46,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
 
     <div class="row">
       <div class="medium-10 medium-offset-1 columns">
-          <div class="medium-6 large-8 columns left field">
+          <div class="medium-6 large-8 columns field">
 
             <h4>Inschrijven</h4>
             <p>
@@ -54,18 +54,20 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
               aantal dingen in. blablablaaaa.
 
               Er is een aantal vereisten blablablaaa
-              <ul>
+              <ul style="padding-left: 1em;">
                 <li>Je moet >4 jaar zijn</li>
                 <li>Je moet van koffie houden</li>
                 <li>Je moet ......</li>
               </ul>
             </p>
           </div>
-          <div class="medium-6 large-4 columns right field">
+          <div class="medium-6 large-4 columns field">
 
             <?php if ($input_valid < 2 || !$captcha_valid): ?>
 
                 <h5>Schrijf u in voor de reünie:</h5>
+                <div class="padding-top-1"></div>
+                <div style="padding-left: 1em;">
                 <?php if (!$captcha_valid && $input_valid !== 0): ?>
                     <p>
                       U bent niet geregistreerd vanwege een verkeerd
@@ -77,7 +79,6 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                     <p>Gelieve alle velden in te vullen.</p>
                 <?php endif; ?>
                 <form action="inschrijven.php" method="POST">
-                  <fieldset class="fieldset">
                     <label>
                       Voornaam: <i style="color: #c40d4c">*</i>
                       <input type="text" name="voornaam" class="name-input" />
@@ -94,7 +95,6 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                     <div class="padding-top-1"></div>
                     <input type="submit" value="Versturen" class="button"
                            style="margin-bottom: 0;"/>
-                  </fieldset>
                 </form>
 
             <?php else: ?>
@@ -112,6 +112,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 ?>
                 <p>Bedankt voor uw inschrijving!</p>
             <?php endif; ?>
+                </div>
 
           </div>
 
