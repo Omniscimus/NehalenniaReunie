@@ -78,6 +78,10 @@ body {
   padding-top: 2em;
 }
 
+.button.green {
+  background-color: #14767f;
+}
+
 /* Footer css */
 .footer {
   margin-top: 1em;

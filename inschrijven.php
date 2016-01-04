@@ -64,10 +64,9 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
           <div class="medium-6 large-4 columns field">
 
             <?php if ($input_valid < 2 || !$captcha_valid): ?>
-
-                <h5>Schrijf u in voor de reünie:</h5>
-                <div class="padding-top-1"></div>
                 <div style="padding-left: 1em;">
+                  <h5>Schrijf u in voor de reünie:</h5>
+                  <div class="padding-top-1"></div>
                 <?php if (!$captcha_valid && $input_valid !== 0): ?>
                     <p>
                       U bent niet geregistreerd vanwege een verkeerd
@@ -91,9 +90,9 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                       Examenjaar:
                       <input type="number" name="examenjaar" class="name-input" value="1985" />
                     </label>
-                    <div class="g-recaptcha" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
+                    <div class="g-recaptcha" style="width: 100%;" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
                     <div class="padding-top-1"></div>
-                    <input type="submit" value="Versturen" class="button"
+                    <input type="submit" class="button green" value="Versturen" class="button"
                            style="margin-bottom: 0;"/>
                 </form>
 
