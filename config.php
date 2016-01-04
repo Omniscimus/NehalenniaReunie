@@ -24,5 +24,12 @@ return array(
         "Nehalennia Stedelijke Scholengemeenschap",
         "Postbus 12, 3456 AB Middelburg",
         "tel. 0123-456789"
+    ),
+
+    "menu" => array(
+        array('Index', 'index.php'),
+        array('Inschrijven', 'inschrijven.php'),
+        array('Veelgestelde vragen', 'faq.php'),
+        array('Contact', 'contact.php')
     )
 );

@@ -79,16 +79,16 @@ body {
 }
 
 /* Footer css */
-footer {
+.footer {
   margin-top: 1em;
   padding: 0.5em;
   border-top: 5px solid #c40d4c;
 }
 
-footer a {
+.footer a {
   color: #14767f;
 }
 
-footer a:hover {
+.footer a:hover {
   color: #c40d4c;
 }

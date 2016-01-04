@@ -14,7 +14,27 @@
     });
 </script>
 <div id="footer">
-  <footer style="text-align: center;">
-    Dit is een website van <a href="http://pr.nehalennia.nl/">SG Nehalennia</a>.
-  </footer>
+  <div class="row">
+    <div class="small-12 medium-10 small-centered columns">
+      <div class="small-12 columns field footer text-center">
+
+        <?php
+        $menu = $config['menu'];
+        foreach ($menu as $item)
+        {
+          echo "
+      <div class=\"small-6 medium-4 large-3 columns\">
+        <a href=\"$item[1]\">$item[0]</a>
+      </div>
+          ";
+        }
+        ?>
+        <div class="small-12 columns" style="margin-top: 0.7em;">
+          Dit is een website van <a href="http://pr.nehalennia.nl/">SG
+          Nehalennia</a>.
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

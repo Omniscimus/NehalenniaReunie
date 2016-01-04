@@ -9,12 +9,7 @@
         <div class="scroller">
           <ul class="menu">
           <?php
-            $menu = array(
-              array('Index', 'index.php'),
-              array('Inschrijven', 'inschrijven.php'),
-              array('Veelgestelde vragen', 'faq.php'),
-              array('Contact', 'contact.php')
-            );
+            $menu = $config['menu'];
             foreach ($menu as $item)
             {
               $selected = strtolower($item[0])===strtolower($pagina);
