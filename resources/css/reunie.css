@@ -34,10 +34,33 @@ School colors:  green-> #14767f
   /*-webkit-overflow-scrolling: touch;*/
 /*}*/
 
+.top-bar .logo {
+  margin-left: 2em;
+}
+
 @media only screen and (max-width: 600px) {
   .top-bar ul.menu {
     display: block;
     text-align: center;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1000px) {
+  .top-bar .logo {
+    width: auto;
+    height: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .top-bar .logo {
+    position: absolute;
+    background-color: white;
+    width: 12em;
+    height: auto;
+    padding: 1em;
+    border-bottom: 5px solid #c40d4c;
+    margin-left: 0;
   }
 }
 
@@ -64,6 +87,13 @@ body {
 .slideshow.field {
   padding: 0;
   margin-top: 0;
+  border-bottom: 5px solid #c40d4c;
+}
+
+.header {
+  padding-top: 0.5em;
+  padding-bottom: 0.2em;
+  border-top: 5px solid #c40d4c;
 }
 
 .name-input {

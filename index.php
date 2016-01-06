@@ -11,14 +11,14 @@
       include 'menu.php';
       ?>
 
-      <iframe class="slideshow field" src="slideshow/header.php" style="width: 100%; height: 300px; position: relative; z-index: -1;" >
+      <iframe class="slideshow field" src="slideshow/header.php" style="width: 100%; height: 300px; position: relative; z-index: -1; " >
         De slideshow kon niet geladen worden omdat uw browser geen iframes accepteert.
       </iframe>
 
       <div class="row" style="margin-top: -4em;">
         <div class="medium-10 medium-offset-1 columns">
 
-          <div class="medium-12 left columns field">
+          <div class="medium-12 left columns field header">
             <h4>Nehalennia Gymnasium Reunie</h4>
           </div>
 
