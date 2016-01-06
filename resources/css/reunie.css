@@ -27,18 +27,25 @@ School colors:  green-> #14767f
   color: #c40d4c;
 }
 
-.top-bar .scroller ul.menu {
-  overflow: hidden;
-  overflow-x: scroll;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+/*.top-bar .scroller ul.menu {*/
+  /*overflow: hidden;*/
+  /*overflow-x: scroll;*/
+  /*white-space: nowrap;*/
+  /*-webkit-overflow-scrolling: touch;*/
+/*}*/
+
+@media only screen and (max-width: 600px) {
+  .top-bar ul.menu {
+    display: block;
+    text-align: center;
+  }
 }
 
-.top-bar .scroller.ul.menu::-webkit-scrollbar {
-  display: none;
-}
+/*.top-bar .scroller.ul.menu::-webkit-scrollbar {*/
+  /*display: none;*/
+/*}*/
 
-.top-bar .scroller ul.menu li {
+.top-bar ul.menu li {
   display: inline-block;
 }
 

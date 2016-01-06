@@ -6,20 +6,18 @@
         <img src="http://pr.nehalennia.nl/images/logoNehalennia.png" style="margin-left: 2em; height: 2.5em; width: auto;">
       </div>
       <div class="top-bar-right">
-        <div class="scroller">
-          <ul class="menu">
-          <?php
-            $menu = $config['menu'];
-            foreach ($menu as $item)
-            {
-              $selected = strtolower($item[0])===strtolower($pagina);
-              echo "<li><a href=\"$item[1]\"". (($selected)?
-                " class=\"selected\"" :
-                "")
-                .">$item[0]</a></li>";
-            }
-          ?>
-          </div>
+        <ul class="menu">
+        <?php
+          $menu = $config['menu'];
+          foreach ($menu as $item)
+          {
+            $selected = strtolower($item[0])===strtolower($pagina);
+            echo "<li><a href=\"$item[1]\"". (($selected)?
+              " class=\"selected\"" :
+              "")
+              .">$item[0]</a></li>";
+          }
+        ?>
         </ul>
       </div>
     </div>
