@@ -1,0 +1,16 @@
+<?php
+
+return array(
+
+  'facebook-link' => '_facebook-link_',
+
+  'veelgestelde-vragen' => array(
+    _veelgestelde-vragen_
+  ),
+
+  'e-mail' => '_e-mail_',
+  'contactgegevens' => array(
+    _contactgegevens_
+  ),
+
+);
