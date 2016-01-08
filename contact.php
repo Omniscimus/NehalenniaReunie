@@ -16,18 +16,18 @@
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
             var map = new google.maps.Map(div, mapoptions);
-            
+
                 var marker = new google.maps.Marker({
                     position: neh,
                     map: map,
                     title:"SSG Nehalennia"
-                });  
-             
+                });
+
                 var contentString = "<a href=\"http://pr.nehalennia.nl\" target=\"_new\">SSG Nehalennia</a><br>Breeweg 71E<br>4335 AP, Middelburg<br>tel. 0123-456789";
                 var infowindow = new google.maps.InfoWindow({
                     content: contentString
                 });
-             
+
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.open(map,marker);
                 });
@@ -58,12 +58,12 @@
           <p>
             U kunt contact opnemen met de organisatie van de reünie door een e-mail
             te sturen naar het adres
-            <a href="mailto:<?php echo $config["e-mail"] ?>">
-              <?php echo $config["e-mail"] ?></a>.
+            <a href="mailto:<?php echo $cms_config["e-mail"] ?>">
+              <?php echo $cms_config["e-mail"] ?></a>.
           </p>
           <p>
             <?php
-            foreach ($config["contactgegevens"] as $gegeven) {
+            foreach ($cms_config["contactgegevens"] as $gegeven) {
               echo $gegeven . "<br />";
             }
             ?>
@@ -75,7 +75,7 @@
         </div>
       </div>
     </div>
-    
+
 
     <?php
     include 'footer.php';

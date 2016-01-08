@@ -28,7 +28,7 @@
           </div>
 
           <div class='medium-12 columns field' style="text-align: center;">
-            <a href="<?php echo $config["facebook-link"]; ?>" target="_blank">
+            <a href="<?php echo $cms_config["facebook-link"]; ?>" target="_blank">
               <img src="resources/img/fb.png" alt="Facebook"
                    style="width: 20%; min-width: 114px; height: auto;"/>
             </a>

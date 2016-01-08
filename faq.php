@@ -24,7 +24,7 @@
           </p>
 
         </div>
-        <?php foreach ($config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
+        <?php foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
         <div class="small-12 medium-6 large-4 columns field"><p><h5><?php echo
             $vraag;
             ?></h5>

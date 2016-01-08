@@ -6,3 +6,4 @@
 <script src="resources/js/foundation.core.min.js"></script>
 <?php
 $config = include 'config.php';
+$cms_config = include 'cms-config.php';
