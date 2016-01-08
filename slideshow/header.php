@@ -17,11 +17,13 @@
             // PHP gaat verzorgen welke afbeeldingen.
             var slideArray = [];
             <?php
-                $urls  = Array("http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1506a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1501a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1108a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1500a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1510a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1109a.jpg");
+                $urls = scandir("../resources/slideshow-fotos");
+                // Haal . en .. eruit
+                $urls = array_slice($urls, 2);
                 shuffle($urls);
 
                 for($i=0; $i<6; $i++) {
-                  echo "slideArray[".$i."] = '".$urls[$i]."';\n";
+                  echo "slideArray[".$i."] = '../resources/slideshow-fotos/".$urls[$i]."';\n";
                 }
             ?>
 
