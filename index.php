@@ -27,10 +27,10 @@
             magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
           </div>
 
-          <div class='medium-12 columns field' style="text-align: right;">
+          <div class='medium-12 columns field' style="text-align: center;">
             <a href="<?php echo $config["facebook-link"]; ?>" target="_blank">
               <img src="resources/img/fb.png" alt="Facebook"
-                   style="width: 10%; min-width: 114px; height: auto;"/>
+                   style="width: 20%; min-width: 114px; height: auto;"/>
             </a>
           </div>
 

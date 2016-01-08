@@ -5,69 +5,68 @@
         <!--optimised for: Firefox/Chrome-->
         <!-- deze pagina komt (denk ik) in een frame. Kan ook direct op hoofdpagina geplaatst worden. -->
         <script type="text/javascript">
-        <!--
             // Globale variabele die bijhoudt welke afbeelding weergegeven wordt.
             var i = 0;
-            
+            // Deze variabele geeft de tijd (in ms) aan die elke foto wordt weergegeven
+            var displayTime = 3000;
+            // Panels variabelen, zie init();
+            var div1;
+            var div2;
+
             // Bij het laden een Array met afbeeldingen laden;
             // PHP gaat verzorgen welke afbeeldingen.
-            var slideArray = new Array();
+            var slideArray = [];
             <?php
-                $urls  = Array("http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1506a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1501a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1108a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1500a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1510a.jpg","http://cdn.spacetelescope.org/archives/images/wallpaper2/heic1109a.jpg");
-                $urlslength = count($urls) - 1;
-                // deze variabele wordt een lijst van alle in een map beschikbare
-                // (foto) bestanden. Hiervan worden er willekeurig 4 (of 6 of 8 of etc...) gekozen.
-                
-                $stored = 0;
-                while ($stored < 4)
-                {
-                    $rnd = rand(0, $urlslength);
-                    echo "slideArray[$stored] = new Image();\n";
-                    echo "slideArray[$stored].src = '".$urls[$rnd]."';\n";
-                    
-                    unset($urls[$rnd]);
-                    $urls = array_values($urls);
-                    $urlslength = count($urls) - 1;
-                    
-                    $stored++;
+                $urls = scandir("../resources/slideshow-fotos");
+                // Haal . en .. eruit
+                $urls = array_slice($urls, 2);
+                shuffle($urls);
+
+                for($i=0; $i<6; $i++) {
+                  echo "slideArray[".$i."] = '../resources/slideshow-fotos/".$urls[$i]."';\n";
                 }
             ?>
-            
-            
+
+            function init() {
+                div1 = document.getElementById("displaypanel1");
+                div2 = document.getElementById("displaypanel2");
+                transform1();
+            }
+
             //De functie transform1 en transform2() wisselen elkaar af. Er zijn twee divs, waarvan de voorste afwisselend in/uit fade.
-            function transform1() 
+            function transform1()
             {
-                var div1 = document.getElementById("displaypanel1");
-                var div2 = document.getElementById("displaypanel2");
-                i += 2;
-                if (i > slideArray.length - 2)
-                {
-                    i = 0;
-                }
-                div2.style.backgroundImage = "url('" + slideArray[i + 1].src + "')";
+                increment();
+                div2.style.backgroundImage = "url('" + slideArray[i] + "')";
                 div2.classList.remove("fadeout");
                 div2.classList.add("fadein");
                 div2.style.opacity = 1;
-               
+
                 //Nieuw afbeelding na 3 sec
-                setTimeout("transform2();",3000);
+                setTimeout("transform2();",displayTime);
             }
             function transform2()
             {
-                var div2 = document.getElementById("displaypanel2");
-                var div1 = document.getElementById("displaypanel1");
-                div1.style.backgroundImage = "url('" + slideArray[i].src + "')";
+                increment();
+                div1.style.backgroundImage = "url('" + slideArray[i] + "')";
                 div2.classList.remove("fadein");
                 div2.classList.add("fadeout");
                 div2.style.opacity = 0;
-                
+
                 //Nieuw afbeelding na 3 sec
-                setTimeout("transform1();",3000);
+                setTimeout("transform1();",displayTime);
             }
-        //-->
+
+            function increment() {
+                i++;
+                if(i > slideArray.length - 1)
+                {
+                    i = 0;
+                }
+            }
         </script>
     </head>
-    <body onload="transform1();">
+    <body onload="init();">
             <div class="panel" id="displaypanel1" alt="foto"/>
             <div class="panel" id="displaypanel2" alt="foto"/>
     </body>
