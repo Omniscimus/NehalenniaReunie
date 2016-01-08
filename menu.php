@@ -3,7 +3,7 @@
   <div class="row">
     <div class="medium-10 medium-offset-1">
       <div class="top-bar-left hide-for-small-only">
-        <img class="logo" src="http://pr.nehalennia.nl/images/logoNehalennia.png">
+        <img class="logo <?php if ($pagina==='index') echo "index"; ?>" src="http://pr.nehalennia.nl/images/logoNehalennia.png">
       </div>
       <div class="top-bar-right">
         <ul class="menu">

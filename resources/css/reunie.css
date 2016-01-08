@@ -36,6 +36,8 @@ School colors:  green-> #14767f
 
 .top-bar .logo {
   margin-left: 2em;
+  width: auto;
+  height: 2.5em;
 }
 
 @media only screen and (max-width: 600px) {
@@ -45,15 +47,8 @@ School colors:  green-> #14767f
   }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1000px) {
-  .top-bar .logo {
-    width: auto;
-    height: 2.5em;
-  }
-}
-
 @media only screen and (min-width: 1000px) {
-  .top-bar .logo {
+  .top-bar .logo.index {
     position: absolute;
     background-color: white;
     width: 12em;
