@@ -1,0 +1,2 @@
+# These configs are handled by PHP, deny access to website viewers
+Deny from all

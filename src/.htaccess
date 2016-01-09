@@ -1,0 +1,11 @@
+# Do not show a directory structure if there's no index page
+Options -Indexes
+
+# Access pages without their filename
+# e.g. nehalenniareunie.nl/contact instead of nehalenniareunie.nl/contact.php
+Options +MultiViews
+
+# Deny access to some stuff
+<Files .htaccess>
+    Deny from all
+</Files>
