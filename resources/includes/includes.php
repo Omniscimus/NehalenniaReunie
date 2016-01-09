@@ -5,5 +5,5 @@
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/foundation.core.min.js"></script>
 <?php
-$config = include 'config.php';
-$cms_config = include 'cms-config.php';
+$config = include 'config/config.php';
+$cms_config = include 'config/cms-config.php';

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'includes.php'; ?>
+    <?php include 'resources/includes/includes.php'; ?>
     <title>Reünie Nehalennia</title>
   </head>
-  
+
   <?php
   if (is_string($_POST["password"])) {
       if ($_POST["password"] == $config["results-password"]) {
@@ -16,12 +16,12 @@
       $mode = 2; // No password yet
   }
   ?>
-  
+
   <body>
     <div>
       <?php
       $pagina = "results";
-      include 'menu.php';
+      include 'resources/includes/menu.php';
       ?>
 
       <div class="padding-top-1"></div>
@@ -38,7 +38,7 @@
               <th>Examenjaar</th>
             </tr>
             <?php
-            require_once 'MySQL_Manager.php';
+            require_once 'resources/includes/MySQL_Manager.php';
             $mysql = new MySQL_Manager();
             try {
                 $mysql->connect();
@@ -74,7 +74,7 @@
       </div>
 
       <?php
-      include 'footer.php';
+      include 'resources/includes/footer.php';
       ?>
     </div>
   </body>

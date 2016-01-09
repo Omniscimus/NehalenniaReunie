@@ -20,11 +20,11 @@ class MySQL_Manager {
 
     /**
      * Verbindt met de MySQL server.
-     * 
+     *
      * @throws Exception als het verbinden is mislukt
      */
     function connect() {
-        $config = include 'config.php';
+        $config = include 'config/config.php';
         $connection = new \mysqli(
                 $config["mysql-host"], $config["mysql-user"], $config["mysql-password"], $config["mysql-database"], $config["mysql-port"]);
         $connection->query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32), examenjaar SMALLINT UNSIGNED UNIQUE);");
@@ -37,7 +37,7 @@ class MySQL_Manager {
 
     /**
      * Zet een nieuwe registratie in de database.
-     * 
+     *
      * @param string $voornaam de voornaam van de persoon die komt
      * @param string $achternaam de achternaam van de persoon die komt
      * @param int $examenjaar het jaar waarin de persoon examen heeft gedaan
@@ -47,10 +47,10 @@ class MySQL_Manager {
         $statement->bind_param("ssi", $voornaam, $achternaam, $examenjaar);
         $statement->execute();
     }
-    
+
     /**
      * Geeft de resultaten van alle inschrijvingen.
-     * 
+     *
      * @return mysqli_result de gegevens van de ingeschreven personen
      */
     function getResults() {

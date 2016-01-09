@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'includes.php'; ?>
+    <?php include 'resources/includes/includes.php'; ?>
     <title>Veelgestelde vragen</title>
   </head>
   <body>
 
     <?php
     $pagina = "Veelgestelde vragen";
-    include 'menu.php';
+    include 'resources/includes/menu.php';
     ?>
 
     <div class="padding-top-1"></div>
@@ -35,7 +35,7 @@
     </div>
 
     <?php
-    include 'footer.php';
+    include 'resources/includes/footer.php';
     ?>
 
   </body>

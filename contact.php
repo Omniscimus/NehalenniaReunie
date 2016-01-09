@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'includes.php'; ?>
+    <?php include 'resources/includes/includes.php'; ?>
     <title>Contact</title>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript">
@@ -48,7 +48,7 @@
 
     <?php
     $pagina = "contact";
-    include 'menu.php';
+    include 'resources/includes/menu.php';
     ?>
     <div class="padding-top-1"></div>
     <div class="row">
@@ -78,7 +78,7 @@
 
 
     <?php
-    include 'footer.php';
+    include 'resources/includes/footer.php';
     ?>
 
   </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'includes.php'; ?>
+    <?php include 'resources/includes/includes.php'; ?>
     <title>Reünie Nehalennia</title>
   </head>
 
@@ -27,7 +27,7 @@
     <div>
       <?php
       $pagina = "results";
-      include 'menu.php';
+      include 'resources/includes/menu.php';
       ?>
 
       <div class="padding-top-1"></div>
@@ -96,14 +96,14 @@
               $contactgegevens = $contactgegevens . "'$gegeven',";
             }
 
-            $template = file_get_contents("cms-config-template.txt");
+            $template = file_get_contents("config/cms-config-template.txt");
             $template = str_replace("_homepage-tekst_", htmlspecialchars($_POST["homepage-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
             $template = str_replace("_veelgestelde-vragen_", $veelgestelde_vragen, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
             $template = str_replace("_contactgegevens_", $contactgegevens, $template);
 
-            $handle = fopen("cms-config.php", 'w');
+            $handle = fopen("config/cms-config.php", 'w');
             fwrite($handle, $template);
             fclose($handle);
             ?>
@@ -113,7 +113,7 @@
       </div>
 
       <?php
-      include 'footer.php';
+      include 'resources/includes/footer.php';
       ?>
     </div>
   </body>

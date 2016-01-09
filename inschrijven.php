@@ -3,7 +3,7 @@ function captcha_is_valid($g_recaptcha_response) {
     if (!isset($g_recaptcha_response)) {
         return false;
     }
-    $config = include 'config.php';
+    $config = include 'config/config.php';
     $data = array('secret' => $config["captcha-secretkey"], 'response' => $g_recaptcha_response);
     $url = "https://www.google.com/recaptcha/api/siteverify";
     $options = array(
@@ -32,7 +32,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'includes.php'; ?>
+    <?php include 'resources/includes/includes.php'; ?>
     <title>Inschrijven</title>
     <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
@@ -40,7 +40,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
 
     <?php
     $pagina = "inschrijven";
-    include 'menu.php';
+    include 'resources/includes/menu.php';
     ?>
     <div class="padding-top-1"></div>
 
@@ -99,7 +99,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
             <?php else: ?>
 
                 <?php
-                require_once 'MySQL_Manager.php';
+                require_once 'resources/includes/MySQL_Manager.php';
                 $mysql = new MySQL_Manager();
                 try {
                     $mysql->connect();
@@ -119,7 +119,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
     </div>
 
     <?php
-    include 'footer.php';
+    include 'resources/includes/footer.php';
     ?>
 
   </body>
