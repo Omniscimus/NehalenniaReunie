@@ -40,6 +40,9 @@
 
             <form action="admin.php" method="post">
 
+              <h5>Tekst voorpagina</h5>
+              <textarea name="homepage-tekst" style="height: 300px;"><?php echo $cms_config["homepage-tekst"]; ?></textarea>
+
               <h5>Veelgestelde vragen</h5>
               <?php
               foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord) {
@@ -94,6 +97,7 @@
             }
 
             $template = file_get_contents("cms-config-template.txt");
+            $template = str_replace("_homepage-tekst_", htmlspecialchars($_POST["homepage-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
             $template = str_replace("_veelgestelde-vragen_", $veelgestelde_vragen, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);

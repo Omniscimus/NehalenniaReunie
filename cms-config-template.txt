@@ -13,4 +13,6 @@ return array(
     _contactgegevens_
   ),
 
+  'homepage-tekst' => '_homepage-tekst_'
+
 );
