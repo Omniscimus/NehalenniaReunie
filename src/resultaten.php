@@ -36,6 +36,9 @@
               <th>Voornaam</th>
               <th>Achternaam</th>
               <th>Examenjaar</th>
+              <th>Beroep</th>
+              <th>Vrijdag</th>
+              <th>Zaterdag</th>
             </tr>
             <?php
             require_once 'resources/includes/MySQL_Manager.php';
@@ -48,9 +51,13 @@
                 if ($results->num_rows > 0) {
                     while ($row = $results->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["voornaam"] . "</td><td>"
-                        . $row["achternaam"] . "</td><td>"
-                        . $row["examenjaar"] . "</td>";
+                        echo "<td>"
+                          . $row["voornaam"]   . "</td><td>"
+                          . $row["achternaam"] . "</td><td>"
+                          . $row["examenjaar"] . "</td><td>"
+                          . $row["beroep"]     . "</td><td>"
+                          . $row["vrijdag"]    . "</td><td>"
+                          . $row["zaterdag"]   . "</td>";
                         echo "</tr>";
                     }
                 } else {

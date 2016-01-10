@@ -27,7 +27,10 @@ class MySQL_Manager {
         $config = include 'config/config.php';
         $connection = new \mysqli(
                 $config["mysql-host"], $config["mysql-user"], $config["mysql-password"], $config["mysql-database"], $config["mysql-port"]);
-        $connection->query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32), examenjaar SMALLINT UNSIGNED UNIQUE);");
+        $connection->query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE
+AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32),
+examenjaar SMALLINT UNSIGNED UNIQUE, beroep VARCHAR(32), vrijdag TINYINT(1),
+zaterdag TINYINT(1));");
         if ($connection->connect_error) {
             throw new \Exception("Verbinden met de database is mislukt.");
         } else {
@@ -41,10 +44,16 @@ class MySQL_Manager {
      * @param string $voornaam de voornaam van de persoon die komt
      * @param string $achternaam de achternaam van de persoon die komt
      * @param int $examenjaar het jaar waarin de persoon examen heeft gedaan
+     * @param string $beroep het beroep van de persoon die komt
+     * @param bool $vrijdag of de persoon vrijdag komt
+     * @param bool $zaterdag of de persoon zaterdag komt
      */
-    function insertNewSubscription($voornaam, $achternaam, $examenjaar) {
-        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, examenjaar) VALUES (?, ?, ?);");
-        $statement->bind_param("ssi", $voornaam, $achternaam, $examenjaar);
+    function insertNewSubscription($voornaam, $achternaam, $examenjaar,
+                                   $beroep, $vrijdag, $zaterdag) {
+        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, examenjaar, beroep,
+          vrijdag, zaterdag ) VALUES (?, ?, ?, ?, ?, ?);");
+        $statement->bind_param("ssisii", $voornaam, $achternaam, $examenjaar,
+          $beroep, $vrijdag, $zaterdag);
         $statement->execute();
     }
 
