@@ -62,7 +62,7 @@
             ?>
           </table>
           <?php else: ?>
-          <form action="results.php" method="post">
+          <form action="resultaten.php" method="post">
               <?php if ($mode === 1): ?>
               <p>Verkeerd wachtwoord.</p>
               <?php endif; ?>
