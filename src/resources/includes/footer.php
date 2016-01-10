@@ -14,8 +14,8 @@
     });
 </script>
 <div id="footer">
-  <div class="row">
-    <div class="small-12 medium-10 small-centered columns">
+  <div class="row" >
+    <div class="small-12 medium-10 small-centered columns" style="padding: 0">
       <div class="small-12 columns field footer text-center">
 
         <?php
