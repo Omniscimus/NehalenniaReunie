@@ -121,3 +121,8 @@ body {
 .footer a:hover {
   color: #c40d4c;
 }
+
+table tr td.time {
+  text-align: right;
+  padding-right: 2em;
+}
