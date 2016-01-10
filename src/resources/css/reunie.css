@@ -3,7 +3,7 @@ School colors:  green-> #14767f
                 red-> #c40d4c
 */
 
-@import url('/resources/css/foundation.min.css');
+@import url('/src/resources/css/foundation.min.css');
 
 /* Top bar css */
 .top-bar {
@@ -27,13 +27,6 @@ School colors:  green-> #14767f
   color: #c40d4c;
 }
 
-/*.top-bar .scroller ul.menu {*/
-  /*overflow: hidden;*/
-  /*overflow-x: scroll;*/
-  /*white-space: nowrap;*/
-  /*-webkit-overflow-scrolling: touch;*/
-/*}*/
-
 .top-bar .logo {
   margin-left: 2em;
   width: auto;
@@ -48,15 +41,15 @@ School colors:  green-> #14767f
 }
 
 @media only screen and (min-width: 1000px) {
-  .top-bar .logo.index {
-    position: absolute;
-    background-color: white;
-    width: 12em;
-    height: auto;
-    padding: 1em;
-    border-bottom: 5px solid #c40d4c;
-    margin-left: 0;
-  }
+  /*.top-bar .logo.index {*/
+    /*position: absolute;*/
+    /*background-color: white;*/
+    /*width: 10em;*/
+    /*height: auto;*/
+    /*padding: 1em;*/
+    /*!*border-bottom: 5px solid #c40d4c;*!*/
+    /*margin-left: 0;*/
+  /*}*/
 }
 
 /*.top-bar .scroller.ul.menu::-webkit-scrollbar {*/

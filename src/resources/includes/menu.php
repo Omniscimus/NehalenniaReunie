@@ -1,7 +1,7 @@
 
-<div id="menu-bar" class="top-bar">
-  <div class="row">
-    <div class="medium-10 medium-offset-1">
+<div class="row">
+  <div class="medium-10 medium-offset-1">
+    <div id="menu-bar" class="top-bar">
       <div class="top-bar-left hide-for-small-only">
         <img class="logo <?php if ($pagina==='index') echo "index"; ?>" src="resources/icon/logoNehalennia.png">
       </div>
