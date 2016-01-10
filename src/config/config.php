@@ -15,6 +15,7 @@ return array(
     "menu" => array(
         array('Index', 'index.php'),
         array('Inschrijven', 'inschrijven.php'),
+        array('Agenda', 'agenda.php'),
         array('Veelgestelde vragen', 'faq.php'),
         array('Contact', 'contact.php')
     )
