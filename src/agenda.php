@@ -32,12 +32,12 @@
           </tr>
 
           <?php
-            foreach($agenda as $agendapunt)
+            foreach($cms_config["agenda"] as $tijd => $agendapunt)
             {
               echo "
               <tr>
-                <td class='time'>$agendapunt[0]</td>
-                <td>$agendapunt[1]</td>
+                <td class='time'>$tijd</td>
+                <td>$agendapunt</td>
               </tr>";
             }
           ?>

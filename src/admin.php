@@ -65,6 +65,17 @@ function defancify($string) {
                 echo "<br />";
               }
               ?>
+              
+              <h5>Agenda</h5>
+              <?php
+              foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
+                $tijd = defancify($tijd);
+                $agendapunt = defancify($agendapunt);
+                echo "<input type=\"text\" name=\"agendatijden[]\" value=\"$tijd\" />";
+                echo "<textarea name=\"agendapunten[]\" >$agendapunt</textarea>";
+                echo "<br />";
+              }
+              ?>
 
               <h5>E-mail</h5>
               <input type="email" value="<?php echo $cms_config["e-mail"]; ?>" name="e-mail" />
@@ -104,6 +115,15 @@ function defancify($string) {
               $antwoord = fancify($antwoorden[$i]);
               $veelgestelde_vragen = $veelgestelde_vragen . "'$vraag' => '$antwoord',\n";
             }
+            
+            $agendatijden = $_POST["agendatijden"];
+            $agendapunten = $_POST["agendapunten"];
+            $agenda = "";
+            for ($i=0; $i<count($agendatijden); $i++) {
+              $agendatijd = fancify($agendatijden[$i]);
+              $agendapunt = fancify($agendapunten[$i]);
+              $agenda = $agenda . "'$agendatijd' => '$agendapunt',\n";
+            }
 
             $contactgegevens = "";
             foreach ($_POST["contactgegevens"] as $gegeven) {
@@ -116,6 +136,7 @@ function defancify($string) {
             $template = str_replace("_inschrijven-tekst_", fancify($_POST["inschrijven-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
             $template = str_replace("_veelgestelde-vragen_", $veelgestelde_vragen, $template);
+            $template = str_replace("_agenda_", $agenda, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
             $template = str_replace("_contactgegevens_", $contactgegevens, $template);
 
