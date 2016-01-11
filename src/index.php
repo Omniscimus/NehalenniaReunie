@@ -23,7 +23,7 @@
         <div class="medium-10 medium-offset-1 columns">
 
           <div class="medium-12 left columns field header">
-            <h4>Nehalennia Gymnasium Reunie</h4>
+            <h4>650 jaar gymnasium!</h4>
           </div>
 
           <div class="medium-12 columns field">
