@@ -13,6 +13,7 @@ return array(
     _contactgegevens_
   ),
 
-  'homepage-tekst' => '_homepage-tekst_'
+  'homepage-tekst' => '_homepage-tekst_',
+  'inschrijven-tekst' => '_inschrijven-tekst_'
 
 );

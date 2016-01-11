@@ -2,6 +2,9 @@
 function fancify($string) {
     return str_replace("\n", "<br>", str_replace("'", "\'", $string));
 }
+function defancify($string) {
+    return str_replace("<br>", "\n", str_replace("\'", "'", $string));
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +50,16 @@ function fancify($string) {
             <form action="admin.php" method="post">
 
               <h5>Tekst voorpagina</h5>
-              <textarea name="homepage-tekst" style="height: 300px;"><?php echo $cms_config["homepage-tekst"]; ?></textarea>
+              <textarea name="homepage-tekst" style="height: 300px;"><?php echo defancify($cms_config["homepage-tekst"]); ?></textarea>
+              
+              <h5>Inschrijven</h5>
+              <textarea name="inschrijven-tekst" style="height: 200px;"><?php echo defancify($cms_config["inschrijven-tekst"]); ?></textarea>
 
               <h5>Veelgestelde vragen</h5>
               <?php
               foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord) {
+                $vraag = defancify($vraag);
+                $antwoord = defancify($antwoord);
                 echo "<input type=\"text\" name=\"vragen[]\" value=\"$vraag\" />";
                 echo "<textarea name=\"antwoorden[]\" >$antwoord</textarea>";
                 echo "<br />";
@@ -64,6 +72,7 @@ function fancify($string) {
               <h5>Contactgegevens</h5>
               <?php
               foreach ($cms_config["contactgegevens"] as $gegeven) {
+                $gegeven = defancify($gegeven);
                 echo "<input type=\"text\" name=\"contactgegevens[]\" value=\"$gegeven\" />";
               }
               ?>
@@ -104,6 +113,7 @@ function fancify($string) {
 
             $template = file_get_contents("config/cms-config-template.txt");
             $template = str_replace("_homepage-tekst_", fancify($_POST["homepage-tekst"]), $template);
+            $template = str_replace("_inschrijven-tekst_", fancify($_POST["inschrijven-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
             $template = str_replace("_veelgestelde-vragen_", $veelgestelde_vragen, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
