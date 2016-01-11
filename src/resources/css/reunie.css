@@ -134,3 +134,9 @@ table tr td.time {
   text-align: right;
   padding-right: 2em;
 }
+
+p.error
+{
+    color: #c40d4c;
+    font-size: 10px;
+}
