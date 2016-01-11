@@ -2,7 +2,7 @@
 
 return array(
 
-  'facebook-link' => 'http://www.facebook.com/nehalenniareunie',
+  'facebook-link' => 'https://www.facebook.com/650jaargymnasiummiddelburg/',
 
   'veelgestelde-vragen' => array(
     'Is dit een vraag?' => 'Ja!',
