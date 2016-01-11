@@ -1,6 +1,6 @@
 <?php
 function fancify($string) {
-    return str_replace("\n", "<br>", str_replace("'", "\'", $_POST["homepage-tekst"]));
+    return str_replace("\n", "<br>", str_replace("'", "\'", $string));
 }
 ?>
 
