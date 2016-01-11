@@ -1,3 +1,9 @@
+<?php
+function fancify($string) {
+    return str_replace("\n", "<br>", str_replace("'", "\'", $_POST["homepage-tekst"]));
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -85,19 +91,19 @@
             $antwoorden = $_POST["antwoorden"];
             $veelgestelde_vragen = "";
             for ($i=0; $i<count($vragen); $i++) {
-              $vraag = htmlspecialchars($vragen[$i]);
-              $antwoord = htmlspecialchars($antwoorden[$i]);
+              $vraag = fancify($vragen[$i]);
+              $antwoord = fancify($antwoorden[$i]);
               $veelgestelde_vragen = $veelgestelde_vragen . "'$vraag' => '$antwoord',\n";
             }
 
             $contactgegevens = "";
             foreach ($_POST["contactgegevens"] as $gegeven) {
-              $gegeven = htmlspecialchars($gegeven);
+              $gegeven = fancify($gegeven);
               $contactgegevens = $contactgegevens . "'$gegeven',";
             }
 
             $template = file_get_contents("config/cms-config-template.txt");
-            $template = str_replace("_homepage-tekst_", htmlspecialchars($_POST["homepage-tekst"]), $template);
+            $template = str_replace("_homepage-tekst_", fancify($_POST["homepage-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
             $template = str_replace("_veelgestelde-vragen_", $veelgestelde_vragen, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
