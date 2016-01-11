@@ -63,7 +63,8 @@ zaterdag TINYINT(1));");
      * @return mysqli_result de gegevens van de ingeschreven personen
      */
     function getResults() {
-        return $this->connection->query("SELECT voornaam, achternaam, examenjaar FROM inschrijvingen;");
+        return $this->connection->query("SELECT voornaam, achternaam,
+        examenjaar, beroep, vrijdag, zaterdag FROM inschrijvingen;");
     }
 
 }
