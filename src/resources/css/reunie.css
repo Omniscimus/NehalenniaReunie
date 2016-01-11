@@ -107,6 +107,14 @@ body {
   background-color: #14767f;
 }
 
+.warning {
+  background-color: #c40d4c;
+  padding: 1em;
+  margin:0;
+  color: white;
+  margin-left: -1em;
+}
+
 /* Footer css */
 .footer {
   margin-top: 1em;
