@@ -1,4 +1,5 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<script src="resources/js/jquery.min.js"></script>
 <script>
     $(window).bind("load", function () {
         var footer = $("#footer");
@@ -12,6 +13,10 @@
             });
         }
     });
+</script>
+<script src="resources/js/foundation.min.js"></script>
+<script>
+  $(document).foundation();
 </script>
 <div id="footer">
   <div class="row" >

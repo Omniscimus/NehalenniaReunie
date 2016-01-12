@@ -110,9 +110,10 @@ body {
 .warning {
   background-color: #c40d4c;
   padding: 1em;
-  margin:0;
-  color: white;
+  margin: 0;
   margin-left: -1em;
+  margin-right: -1em;
+  color: white;
 }
 
 /* Footer css */
