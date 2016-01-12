@@ -12,6 +12,45 @@ function defancify($string) {
   <head>
     <?php include 'resources/includes/includes.php'; ?>
     <title>Reünie Nehalennia</title>
+
+    <script>
+      // Zorgt ervoor dat je bijv. bij de FAQ velden op de + en - kan drukken
+
+      // Maak DOM 'remove' methods aan
+      Element.prototype.remove = function() {
+        this.parentElement.removeChild(this);
+      }
+      NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+        for (var i = 0; i > this.length; i--) {
+          if (this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+          }
+        }
+      }
+
+      // Haalt een element weg, aangeroepen als er op de - gedrukt wordt
+      function minus(id) {
+        document.getElementById(id).parentElement.remove();
+      }
+
+      function createMinusButton(id) {
+        return '<input id="' + id + '" type="button" onclick="minus(this.id)" value="-" />';
+      }
+
+      // Houdt bij hoeveel FAQ-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
+      var faqCount = 0;
+      function createFAQElement(vraag, antwoord) {
+        faqCount = faqCount + 1;
+        var newElement = document.createElement('div');
+        newElement.innerHTML =
+                createMinusButton(faqCount)
+                + '<input type="text" name="vragen[]" value="' + vraag + '" />'
+                + '<textarea name="antwoorden[]" >' + antwoord + '</textarea>'
+                + '<br />';
+        return newElement;
+      }
+    </script>
+
   </head>
 
   <?php
@@ -51,21 +90,24 @@ function defancify($string) {
 
               <h5>Tekst voorpagina</h5>
               <textarea name="homepage-tekst" style="height: 300px;"><?php echo defancify($cms_config["homepage-tekst"]); ?></textarea>
-              
+
               <h5>Inschrijven</h5>
               <textarea name="inschrijven-tekst" style="height: 200px;"><?php echo defancify($cms_config["inschrijven-tekst"]); ?></textarea>
 
               <h5>Veelgestelde vragen</h5>
-              <?php
-              foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord) {
-                $vraag = defancify($vraag);
-                $antwoord = defancify($antwoord);
-                echo "<input type=\"text\" name=\"vragen[]\" value=\"$vraag\" />";
-                echo "<textarea name=\"antwoorden[]\" >$antwoord</textarea>";
-                echo "<br />";
-              }
-              ?>
-              
+              <div id="faqdiv">
+              <script>
+                <?php
+                foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord) {
+                  $vraag = defancify($vraag);
+                  $antwoord = defancify($antwoord);
+                  echo "document.getElementById('faqdiv').appendChild(createFAQElement('$vraag', '$antwoord'));";
+                }
+                ?>
+              </script>
+              </div>
+              <input type="button" onclick="document.getElementById('faqdiv').appendChild(createFAQElement('', ''))" value="+" />
+
               <h5>Agenda</h5>
               <?php
               foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
@@ -115,7 +157,7 @@ function defancify($string) {
               $antwoord = fancify($antwoorden[$i]);
               $veelgestelde_vragen = $veelgestelde_vragen . "'$vraag' => '$antwoord',\n";
             }
-            
+
             $agendatijden = $_POST["agendatijden"];
             $agendapunten = $_POST["agendapunten"];
             $agenda = "";
