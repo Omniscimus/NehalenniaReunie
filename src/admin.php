@@ -49,6 +49,19 @@ function defancify($string) {
                 + '<br />';
         return newElement;
       }
+
+      // Houdt bij hoeveel agenda-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
+      var agendaCount = 0;
+      function createAgendaElement(time, activity) {
+        agendaCount = agendaCount + 1;
+        var newElement = document.createElement('div');
+        newElement.innerHTML =
+                createMinusButton(agendaCount)
+                + '<input type="text" name="agendatijden[]" value="' + time + '" />'
+                + '<textarea name="agendapunten[]" >' + activity + '</textarea>'
+                + '<br />';
+        return newElement;
+      }
     </script>
 
   </head>
@@ -109,15 +122,18 @@ function defancify($string) {
               <input type="button" onclick="document.getElementById('faqdiv').appendChild(createFAQElement('', ''))" value="+" />
 
               <h5>Agenda</h5>
-              <?php
-              foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
-                $tijd = defancify($tijd);
-                $agendapunt = defancify($agendapunt);
-                echo "<input type=\"text\" name=\"agendatijden[]\" value=\"$tijd\" />";
-                echo "<textarea name=\"agendapunten[]\" >$agendapunt</textarea>";
-                echo "<br />";
-              }
-              ?>
+              <div id="agendadiv">
+              <script>
+                <?php
+                foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
+                  $tijd = defancify($tijd);
+                  $agendapunt = defancify($agendapunt);
+                  echo "document.getElementById('agendadiv').appendChild(createAgendaElement('$tijd', '$agendapunt'));";
+                }
+                ?>
+              </script>
+              </div>
+              <input type="button" onclick="document.getElementById('agendadiv').appendChild(createAgendaElement('', ''))" value="+" />
 
               <h5>E-mail</h5>
               <input type="email" value="<?php echo $cms_config["e-mail"]; ?>" name="e-mail" />
