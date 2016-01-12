@@ -69,13 +69,13 @@
             ?>
           </p>
         </div>
-        <div class="small-6 columns field">
+        <div class="medium-6 columns field">
           <h5>Ik kom met het openbaar vervoer</h5>
           <p>
             De trein uit de richting van Roosendaal arriveert 16 minuten na heel en half op station Middelburg. Aan uw kant van het station is meteen het busstation. U kunt met lijn 53, 56 en 58 reizen naar halte Toorenvliedt. U bent dan bij Nehalennia Kruisweg. Loop de Kruisweg uit en ga aan het einde naar rechts, de Breeweg in. Nehalennia Breeweg is na ongeveer 300 meter aan uw rechterzijde.
           </p>
         </div>
-        <div class="small-6 columns field">
+        <div class="medium-6 columns field">
           <h5>Ik kom met het de auto</h5>
           <p>
             Rij naar de Breeweg. Direct tegenover de Nehalennia Breeweg vindt u de Aanloop (met een groot bord "De Sprong"). Aan het einde van deze straat is voldoende (gratis) parkeergelegenheid.
