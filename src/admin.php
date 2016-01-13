@@ -3,7 +3,7 @@ function fancify($string) {
     return str_replace("\n", "<br>", str_replace("'", "\'", $string));
 }
 function defancify($string) {
-    return str_replace("<br>", "\n", str_replace("\'", "'", $string));
+    return str_replace("<br>", "\n", htmlspecialchars($string));
 }
 ?>
 
@@ -45,8 +45,7 @@ function defancify($string) {
         newElement.innerHTML =
                 createMinusButton(faqCount)
                 + '<input type="text" name="vragen[]" value="' + vraag + '" />'
-                + '<textarea name="antwoorden[]" >' + antwoord + '</textarea>'
-                + '<br />';
+                + '<textarea name="antwoorden[]" >' + antwoord + '</textarea>';
         return newElement;
       }
 
@@ -58,8 +57,18 @@ function defancify($string) {
         newElement.innerHTML =
                 createMinusButton(agendaCount)
                 + '<input type="text" name="agendatijden[]" value="' + time + '" />'
-                + '<textarea name="agendapunten[]" >' + activity + '</textarea>'
-                + '<br />';
+                + '<textarea name="agendapunten[]" >' + activity + '</textarea>';
+        return newElement;
+      }
+
+      // Houdt bij hoeveel agenda-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
+      var gegevensCount = 0;
+      function createGegevensElement(gegeven) {
+        gegevensCount = gegevensCount + 1;
+        var newElement = document.createElement('div');
+        newElement.innerHTML =
+                createMinusButton(gegevensCount)
+                + '<input type="text" name="contactgegevens[]" value="' + gegeven + '" />';
         return newElement;
       }
     </script>
@@ -139,12 +148,17 @@ function defancify($string) {
               <input type="email" value="<?php echo $cms_config["e-mail"]; ?>" name="e-mail" />
 
               <h5>Contactgegevens</h5>
-              <?php
-              foreach ($cms_config["contactgegevens"] as $gegeven) {
-                $gegeven = defancify($gegeven);
-                echo "<input type=\"text\" name=\"contactgegevens[]\" value=\"$gegeven\" />";
-              }
+              <div id="contactdiv">
+              <script>
+                <?php
+                foreach ($cms_config["contactgegevens"] as $gegeven) {
+                  $gegeven = defancify($gegeven);
+                  echo "document.getElementById('contactdiv').appendChild(createGegevensElement('$gegeven'));";
+                }
               ?>
+              </script>
+              </div>
+              <input type="button" onclick="document.getElementById('contactdiv').appendChild(createGegevensElement(''))" value="+" />
 
               <h5>Facebook link</h5>
               <input type="text" value="<?php echo $cms_config["facebook-link"]; ?>" name="facebook-link" />
