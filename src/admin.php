@@ -1,4 +1,9 @@
 <?php
+/**
+ * Methods die ervoor zorgen dat informatie goed verwerkt worden tussen
+ * admin.php en cms-config.php. Een enter moet bijvoorbeeld gezien worden als
+ * <br> in HTML.
+ */
 function fancify($string) {
     return str_replace("\n", "<br>", str_replace("'", "\'", $string));
 }
@@ -14,7 +19,7 @@ function defancify($string) {
     <title>Reünie Nehalennia</title>
 
     <script>
-      // Zorgt ervoor dat je bijv. bij de FAQ velden op de + en - kan drukken
+      // Dit scriptje zorgt ervoor dat je bijv. bij de FAQ velden op de + en - kan drukken.
 
       // Maak DOM 'remove' methods aan
       Element.prototype.remove = function() {
@@ -33,6 +38,7 @@ function defancify($string) {
         document.getElementById(id).parentElement.remove();
       }
 
+      // Geeft de HTML-code voor een - knop
       function createMinusButton(id) {
         return '<input id="' + id + '" type="button" onclick="minus(this.id)" value="-" />';
       }
@@ -76,6 +82,7 @@ function defancify($string) {
   </head>
 
   <?php
+  // Validatie van wachtwoord en controle of er content is opgestuurd.
   if (is_string($_POST["password"])) {
       if ($_POST["password"] == $config["results-password"]) {
           if (is_string($_POST["facebook-link"])) {
@@ -107,6 +114,7 @@ function defancify($string) {
           <h4>Inhoud</h4>
 
           <?php if ($mode === 0): ?>
+            <!-- Heeft net correct wachtwoord ingevuld. Toon het formulier voor het bewerken van cms_config.php. -->
 
             <form action="admin.php" method="post">
 
@@ -169,6 +177,7 @@ function defancify($string) {
             </form>
 
           <?php elseif ($mode === 1 || $mode === 2): ?>
+            <!-- Nog geen wachtwoord ingevuld, of verkeerd wachtwoord ingevuld. -->
             <form action="admin.php" method="post">
               <?php if ($mode === 1): ?>
               <p>Verkeerd wachtwoord.</p>
@@ -177,6 +186,7 @@ function defancify($string) {
               <input class="button" type="submit" value="Verder" />
             </form>
           <?php elseif ($mode === 3): ?>
+            <!-- Heeft zojuist het formulier opgestuurd; verwerking. -->
             <?php
 
             $vragen = $_POST["vragen"];
@@ -203,7 +213,9 @@ function defancify($string) {
               $contactgegevens = $contactgegevens . "'$gegeven',";
             }
 
+            // Beschouw de cms-config-template als een bestand en open het
             $template = file_get_contents("config/cms-config-template.txt");
+            // Vervang alle template stukjes door de zojuist verwerkte gegevens
             $template = str_replace("_homepage-tekst_", fancify($_POST["homepage-tekst"]), $template);
             $template = str_replace("_inschrijven-tekst_", fancify($_POST["inschrijven-tekst"]), $template);
             $template = str_replace("_facebook-link_", $_POST["facebook-link"], $template);
@@ -212,6 +224,7 @@ function defancify($string) {
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
             $template = str_replace("_contactgegevens_", $contactgegevens, $template);
 
+            // Schrijf de gemaakte config naar cms-config.php; overwrite existing.
             $handle = fopen("config/cms-config.php", 'w');
             fwrite($handle, $template);
             fclose($handle);
