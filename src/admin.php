@@ -168,6 +168,12 @@ function defancify($string) {
               </div>
               <input type="button" onclick="document.getElementById('contactdiv').appendChild(createGegevensElement(''))" value="+" />
 
+              <h6>Openbaar vervoer</h6>
+              <textarea name="ovreis" style="height: 200px;"><?php echo defancify($cms_config["ovreis"]); ?></textarea>
+
+              <h6>Auto</h6>
+              <textarea name="autoreis" style="height: 200px;"><?php echo defancify($cms_config["autoreis"]); ?></textarea>
+
               <h5>Facebook link</h5>
               <input type="text" value="<?php echo $cms_config["facebook-link"]; ?>" name="facebook-link" />
 
@@ -223,6 +229,8 @@ function defancify($string) {
             $template = str_replace("_agenda_", $agenda, $template);
             $template = str_replace("_e-mail_", $_POST["e-mail"], $template);
             $template = str_replace("_contactgegevens_", $contactgegevens, $template);
+            $template = str_replace("_ovreis_", fancify($_POST["ovreis"]), $template);
+            $template = str_replace("_autoreis_", fancify($_POST["autoreis"]), $template);
 
             // Schrijf de gemaakte config naar cms-config.php; overwrite existing.
             $handle = fopen("config/cms-config.php", 'w');

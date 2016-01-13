@@ -12,6 +12,8 @@ return array(
   'contactgegevens' => array(
     _contactgegevens_
   ),
+  'ovreis' => '_ovreis_',
+  'autoreis' => '_autoreis_',
 
   'homepage-tekst' => '_homepage-tekst_',
   'inschrijven-tekst' => '_inschrijven-tekst_',
