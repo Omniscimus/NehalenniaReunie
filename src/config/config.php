@@ -7,6 +7,15 @@ return array(
     "mysql-password" => "",
     "mysql-database" => "reunie",
 
+    "mail-host" => "test.mail.server",
+    "mail-user" => "test@mailserver.com",
+    "mail-password" => "",
+    "mail-smtp-secure" => "ssl",
+    "mail-smtp-port" => 123,
+    "mail-name" => "Joe", // In what name should the mail be sent
+    "mail-reply-to" => "you@mailserver.com",
+    "mail-reply-to-name" => 'You',
+
     "captcha-sitekey" => "",
     "captcha-secretkey" => "",
 
