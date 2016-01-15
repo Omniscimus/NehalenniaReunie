@@ -22,10 +22,13 @@
   <div class="row" >
     <div class="small-12 medium-10 small-centered columns" style="padding: 0">
       <div class="small-12 columns field footer text-center">
-        <div class="small-12 columns" style="margin-top: 0.7em;">
+
+        <div class="small-12 columns" style="margin-top: 0.2em;
+        padding-bottom: 0.5em;">
           Dit is een website van <a href="http://pr.nehalennia.nl/">SG
           Nehalennia</a>.
         </div>
+
       </div>
     </div>
   </div>
