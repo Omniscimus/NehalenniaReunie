@@ -25,12 +25,11 @@
 
         </div>
         <?php foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
-        <div class="small-12 medium-6 large-4 columns field"><p><h5><?php echo
-            $vraag;
-            ?></h5>
-        <?php echo $antwoord; ?></p></div>
+          <div class="small-12 medium-6 columns field">
+            <h5><?php echo $vraag; ?></h5>
+            <p><?php echo $antwoord; ?></p>
+          </div>
         <?php endforeach; ?>
-        <h3></h3>
       </div>
     </div>
 
