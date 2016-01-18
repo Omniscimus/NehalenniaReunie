@@ -191,7 +191,13 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
  
                 <label>
                   Zaterdag 19 maart 2016
-                  <input type="checkbox" name="zaterdag" id="zaterdag">
+                  <input type="checkbox" name="zaterdag" id="zaterdag"><br />
+                </label>
+
+                <label style="padding-left: 1em; margin-top: -0.8em;">
+                  Ja, ik bezoek ook graag de les van dhr. J.M. van Weele in het
+                  oude gymnasium
+                  <input type="checkbox" name="les" id="les">
                 </label>
  
                 <p class="error" id="err_dag"></p>
