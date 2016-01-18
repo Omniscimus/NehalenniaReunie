@@ -45,6 +45,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
 <script type="text/javascript">
     <!--
         var errors = 0;
+        var firsttime = true;
         function validate()
         {
             errors = 0;
@@ -110,6 +111,15 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
         function clear(fieldname)
         {
             document.getElementById("err_" + fieldname).innerHTML = "";
+        }
+        function updateScreen()
+        {
+            document.getElementById("les").disabled = !document.getElementById("zaterdag").checked;
+            if (firsttime || !document.getElementById("zaterdag").checked)
+            {
+                document.getElementById("les").checked = document.getElementById("zaterdag").checked;
+                firsttime = false;
+            }
             }
     //-->
     </script>
@@ -191,13 +201,12 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
  
                 <label>
                   Zaterdag 19 maart 2016
-                  <input type="checkbox" name="zaterdag" id="zaterdag"><br />
+                  <input type="checkbox" name="zaterdag" id="zaterdag" onclick="updateScreen();"><br />
                 </label>
 
                 <label style="padding-left: 1em; margin-top: -0.8em;">
-                  Ja, ik bezoek ook graag de les van dhr. J.M. van Weele in het
+                  <input type="checkbox" name="les" id="les" disabled>Ja, ik bezoek ook graag de les van dhr. J.M. van Weele in het
                   oude gymnasium
-                  <input type="checkbox" name="les" id="les">
                 </label>
  
                 <p class="error" id="err_dag"></p>
@@ -233,7 +242,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 // Sending bevestigingsmail
                 $to = $_POST["email"];
                 $subject = "Bevestiging inschrijving Nehalenniareünie";
-                $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleer u of onderstaande gegevens kloppen:<br><br>";
+                $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleert u alstublieft of onderstaande gegevens kloppen:<br><br>";
                 $message .= "U komt op ";
  
                 if ($_POST['vrijdag'])
@@ -248,10 +257,13 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 {
                     $message .= "zaterdag";
                 }
- 
+                if ($_POST['les'])
+                {
+                    $message .= ".<br>U bezoekt zaterdag ook de de les van dhr. J.M. van Weele";
+                }
                 $message .= ".<br>U heeft examen gedaan in "
                   .$_POST["examenjaar"].".";
-                $message .= "<br><br>Vriendelijke groeten,<br>SSG Nehalennia";
+                $message .= "<br><br>Vriendelijke groeten,<br>SSG Nehalennia<br><br><i>Dit is een automatisch gegenereerd bericht waarop u niet kunt reageren. Klopt er iets niet of heeft u vragen, aarzel niet om contact op te nemen via <a href=\"mailto:info@nehalenniareunie.nl\">info@nehalenniareunie.nl</a>.</i>";
  
                 require 'resources/mail/PHPMailerAutoload.php';
                 $config = include 'config/config.php';
