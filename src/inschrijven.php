@@ -168,15 +168,15 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                   <input type="text" name="email" id="email" class="name-input" />
                   <p class="error" id="err_email"></p>
                 </label>
- 
-          </div>
-          <div class="medium-6 columns field" data-equalizer-watch>
- 
+
                 <label>
                   Examenjaar:
                   <input type="number" name="examenjaar" id="examenjaar" class="name-input" value="1985" />
                   <p class="error" id="err_examenjaar"></p>
                 </label>
+ 
+          </div>
+          <div class="medium-6 columns field" data-equalizer-watch>
  
                 <label>
                   Huidige beroep:
@@ -196,7 +196,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
  
                 <p class="error" id="err_dag"></p>
  
-                <div class="g-recaptcha" style="width: 100%;" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
+                <div class="g-recaptcha" style="width: 100%; height: 5em;" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
  
                 <div class="padding-top-1"></div>
  
@@ -218,7 +218,6 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                     $mysql->insertNewSubscription($_POST["voornaam"],
                       $_POST["achternaam"], $_POST["examenjaar"],
                       $_POST['beroep'], $_POST['vrijdag'], $_POST['zaterdag']);
-                      // hier moet e-mail nog bij
                     $mysql->closeConnection();
                 } catch (\Exception $e) {
                     echo $e->getMessage();
