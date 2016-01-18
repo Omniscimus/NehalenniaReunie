@@ -210,7 +210,7 @@ function defancify($string) {
             for ($i=0; $i<count($agendatijden); $i++) {
               $agendatijd = fancify($agendatijden[$i]);
               $agendapunt = fancify($agendapunten[$i]);
-              $agenda = $agenda . "'$agendatijd' => '$agendapunt',\n";
+              $agenda .= "array('$agendatijd','$agendapunt'),\n";
             }
 
             $contactgegevens = "";
@@ -237,7 +237,7 @@ function defancify($string) {
             fwrite($handle, $template);
             fclose($handle);
             ?>
-            <p>De gegevens zijn geüpdate.</p>
+            <p>De gegevens zijn geüpdated.</p>
           <?php endif; ?>
         </div>
       </div>
