@@ -24,12 +24,25 @@
           </p>
 
         </div>
-        <?php foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
-          <div class="small-12 medium-6 columns field">
+        <div class="small-12 medium-6 columns" style="padding:0;">
+        <?php $id=0; foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord): ?>
+          <?php if ($id%2==0) : ?>
+          <div class="field small-12 columns">
             <h5><?php echo $vraag; ?></h5>
             <p><?php echo $antwoord; ?></p>
           </div>
+          <?php endif; $id++; ?>
         <?php endforeach; ?>
+        </div>
+        <div class="small-12 medium-6 columns" style="padding:0;">
+        <?php $id=0; foreach ($cms_config["veelgestelde-vragen"] as $vraag => $antwoord): ?>       <?php if ($id%2==1) : ?>
+          <div class="field small-12 columns">
+            <h5><?php echo $vraag; ?></h5>
+            <p><?php echo $antwoord; ?></p>
+          </div>
+          <?php endif; $id++; ?>
+        <?php endforeach; ?>
+        </div>
       </div>
     </div>
 
