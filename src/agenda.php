@@ -27,15 +27,30 @@
       <div class="medium-12 columns field" style="padding: 0;">
         <table style="width: 100%; margin:0;">
           <tr>
-            <th width="25%">Tijd</th>
+            <th width="20%">Datum</th>
+            <th width="20%">Tijd</th>
             <th>Agendapunt</th>
           </tr>
 
           <?php
-            foreach($cms_config["agenda"] as $tijd => $agendapunt)
+            $dag = "Vrijdag 18 maart 2016";
+            $lasttime;
+            foreach($cms_config["agenda"] as $item)
             {
+                $tijd = $item[0];
+                $agendapunt = $item[1];
+                $thistime = strtotime(substr($tijd,0,5));
+                if (isset($lasttime))
+                {
+                    if ($thistime < $lasttime)
+                    {
+                        $dag = "Zaterdag 19 maart 2016";
+                    }
+                }
+                $lasttime = $thistime;
               echo "
               <tr>
+                <td>$dag</td>
                 <td class='time'>$tijd</td>
                 <td>$agendapunt</td>
               </tr>";
