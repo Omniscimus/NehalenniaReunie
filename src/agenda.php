@@ -27,7 +27,7 @@
       <div class="medium-12 columns field" style="padding: 0;">
         <table style="width: 100%; margin:0;">
           <tr>
-            <th width="20%">Tijd</th>
+            <th width="25%">Tijd</th>
             <th>Agendapunt</th>
           </tr>
 
