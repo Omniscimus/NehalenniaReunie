@@ -233,7 +233,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 // Sending bevestigingsmail
                 $to = $_POST["email"];
                 $subject = "Bevestiging inschrijving Nehalenniareünie";
-                $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleer of onderstaande gegevens kloppen:<br><br>";
+                $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleer u of onderstaande gegevens kloppen:<br><br>";
                 $message .= "U komt op ";
  
                 if ($_POST['vrijdag'])
