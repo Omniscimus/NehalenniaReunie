@@ -216,8 +216,9 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 try {
                     $mysql->connect();
                     $mysql->insertNewSubscription($_POST["voornaam"],
-                      $_POST["achternaam"], $_POST["examenjaar"],
-                      $_POST['beroep'], $_POST['vrijdag'], $_POST['zaterdag']);
+                      $_POST["achternaam"], $_POST['email'], $_POST["examenjaar"],
+                      $_POST['beroep'], $_POST['vrijdag'],
+                      $_POST['zaterdag'], $_POST['les']);
                     $mysql->closeConnection();
                 } catch (\Exception $e) {
                     echo $e->getMessage();
