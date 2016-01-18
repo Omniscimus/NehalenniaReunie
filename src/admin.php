@@ -139,13 +139,13 @@ function defancify($string) {
               <input type="button" onclick="document.getElementById('faqdiv').appendChild(createFAQElement('', ''))" value="+" />
 
               <h5>Agenda</h5>
+              De datum wordt automatisch bepaald. Hiervoor is het nodig dat de items op volgorde worden ingevuld en dat het eerste item op zaterdag niet later begint dan het laatste op vrijdag.
               <div id="agendadiv">
-                  De datum wordt automatisch bepaald. Hiervoor is het nodig dat de items op volgorde worden ingevuld en dat het eerste item op zaterdag niet later begint dan het laatste op vrijdag.
               <script>
                 <?php
-                foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
-                  $tijd = defancify($tijd);
-                  $agendapunt = defancify($agendapunt);
+                foreach ($cms_config["agenda"] as $item) {
+                  $tijd = defancify($item[0]);
+                  $agendapunt = defancify($item[1]);
                   echo "document.getElementById('agendadiv').appendChild(createAgendaElement('$tijd', '$agendapunt'));";
                 }
                 ?>
