@@ -140,6 +140,7 @@ function defancify($string) {
 
               <h5>Agenda</h5>
               <div id="agendadiv">
+                  De datum wordt automatisch bepaald. Hiervoor is het nodig dat de items op volgorde worden ingevuld en dat het eerste item op zaterdag niet later begint dan het laatste op vrijdag.
               <script>
                 <?php
                 foreach ($cms_config["agenda"] as $tijd => $agendapunt) {
