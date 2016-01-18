@@ -22,8 +22,12 @@ return array(
   'inschrijven-tekst' => 'Hier kunt u zich inschrijven voor de reünie. Dit houdt een aantal dingen in. blablablaaaa. Er is een aantal vereisten blablablaaa',
 
   'agenda' => array(
-    "9:00 - 10:00" => "Dansen aan de zee",
-    "10:00 - 10:30" => "Pauze"
+    array("9:00 - 10:00" , "Dansen aan de zee"),
+    array("10:00 - 10:30" , "Pauze"),
+    array("10:30 - 11:00" , "Schaken"),
+    array("09:00 - 13:30" , "Luisteren naar FDO"),
+    array("09:01 - 10:00" , "Adempauze"),
+    array("10:01 - 10:30" , "Borrel"),
   )
 
 );
