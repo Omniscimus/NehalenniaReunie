@@ -28,9 +28,9 @@ class MySQL_Manager {
         $connection = new \mysqli(
                 $config["mysql-host"], $config["mysql-user"], $config["mysql-password"], $config["mysql-database"], $config["mysql-port"]);
         $connection->query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE
-AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32),
-examenjaar SMALLINT UNSIGNED UNIQUE, beroep VARCHAR(32), vrijdag TINYINT(1),
-zaterdag TINYINT(1));");
+AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32), email
+VARCHAR(48), examenjaar SMALLINT UNSIGNED, beroep VARCHAR(32), vrijdag
+TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
         if ($connection->connect_error) {
             throw new \Exception("Verbinden met de database is mislukt.");
         } else {
@@ -48,12 +48,12 @@ zaterdag TINYINT(1));");
      * @param bool $vrijdag of de persoon vrijdag komt
      * @param bool $zaterdag of de persoon zaterdag komt
      */
-    function insertNewSubscription($voornaam, $achternaam, $examenjaar,
-                                   $beroep, $vrijdag, $zaterdag) {
-        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, examenjaar, beroep,
-          vrijdag, zaterdag ) VALUES (?, ?, ?, ?, ?, ?);");
-        $statement->bind_param("ssisii", $voornaam, $achternaam, $examenjaar,
-          $beroep, $vrijdag, $zaterdag);
+    function insertNewSubscription($voornaam, $achternaam, $email, $examenjaar,
+                                   $beroep, $vrijdag, $zaterdag, $les) {
+        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
+          vrijdag, zaterdag, les) VALUES (?, ?, ?, ?, ?, ?, ?);");
+        $statement->bind_param("sssisiii", $voornaam, $achternaam,
+          $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
         $statement->execute();
     }
 
