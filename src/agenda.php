@@ -30,7 +30,7 @@
           <tr>
             <th width="20%">Datum</th>
             <th width="20%">Tijd</th>
-            <th>Agendapunt</th>
+            <th>Activiteit</th>
           </tr>
 
           <?php
