@@ -9,6 +9,7 @@
   $pagina = "agenda";
   include 'resources/includes/menu.php';
 
+  date_default_timezone_set("Europe/Amsterdam");
   $agenda = array(
     array("9:00 - 10:00", "Dansen aan de zee"),
     array("10:00 - 10:30", "Pauze")
