@@ -23,7 +23,8 @@
                 shuffle($urls);
 
                 for($i=0; $i<6; $i++) {
-                  echo "slideArray[".$i."] = '../resources/slideshow-fotos/".$urls[$i]."';\n";
+                  echo "slideArray[".$i."] = new Image();"; 
+                  echo "slideArray[".$i."].src = '../resources/slideshow-fotos/".$urls[$i]."';\n";
                 }
             ?>
 
@@ -37,7 +38,7 @@
             function transform1()
             {
                 increment();
-                div2.style.backgroundImage = "url('" + slideArray[i] + "')";
+                div2.style.backgroundImage = slideArray[i].src;//"url('" + slideArray[i] + "')";
                 div2.classList.remove("fadeout");
                 div2.classList.add("fadein");
                 div2.style.opacity = 1;
@@ -48,7 +49,7 @@
             function transform2()
             {
                 increment();
-                div1.style.backgroundImage = "url('" + slideArray[i] + "')";
+                div1.style.backgroundImage = slideArray[i].src;//"url('" + slideArray[i] + "')";
                 div2.classList.remove("fadein");
                 div2.classList.add("fadeout");
                 div2.style.opacity = 0;
