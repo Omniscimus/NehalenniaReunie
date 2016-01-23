@@ -41,7 +41,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
   <head>
     <?php include 'resources/includes/includes.php'; ?>
     <title>Inschrijven</title>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script>
     <script type="text/javascript">
     <!--
         var errors = 0;
