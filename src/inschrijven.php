@@ -42,7 +42,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
     <?php include 'resources/includes/includes.php'; ?>
     <title>Inschrijven</title>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-<script type="text/javascript">
+    <script type="text/javascript">
     <!--
         var errors = 0;
         var firsttime = true;
@@ -135,173 +135,177 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
     <div class="row">
       <div class="medium-10 medium-offset-1 columns">
  
-          <div class="small-12 columns field">
-            <h4>Inschrijven</h4>
-            <p><?php echo $cms_config["inschrijven-tekst"]; ?></p>
-          </div>
+        <div class="small-12 columns field">
+          <h4>Inschrijven</h4>
+          <p><?php echo $cms_config["inschrijven-tekst"]; ?></p>
+        </div>
  
  
         <div class="medium-12 columns field">
-            <?php if ($input_valid < 4 || !$captcha_valid): ?>
-              <h5>Schrijf u in
-          voor de reünie:</h5>
-            <?php if (!$captcha_valid && $input_valid !== 0): ?>
+
+<?php if ($input_valid < 4 || !$captcha_valid): ?>
+
+            <h5>Schrijf u in voor de reünie:</h5>
+
+  <?php if (!$captcha_valid && $input_valid !== 0): ?>
+
               <div class="warning">
                 U bent niet geregistreerd vanwege een verkeerd
                 CAPTCHA-resultaat. Probeert u het alstublieft nog eens.
                 Vergeet niet op het vakje voor 'Ik ben geen robot' te
                 klikken.
               </div>
-            <?php elseif ($input_valid !== 0): ?>
+
+  <?php elseif ($input_valid !== 0): ?>
+
               <div class="warning">Gelieve alle velden in te vullen.</div>
-            <?php endif; ?>
-              </div>
-            <div data-equalizer>
+
+  <?php endif; ?>
+
+        </div>
+        <div data-equalizer>
+          <form action="inschrijven.php" method="POST">
             <div class="medium-6 columns field" data-equalizer-watch>
-              <form action="inschrijven.php" method="POST">
-                <legend>Informatie over uzelf</legend>
+              <legend>Informatie over uzelf</legend>
  
-                <label>
-                  Voornaam: <i style="color: #c40d4c">*</i>
-                  <input type="text" name="voornaam" id="voornaam" class="name-input" />
-                  <p class="error" id="err_voornaam"></p>
-                </label>
- 
-                <label>
-                  Achternaam: <i style="color: #c40d4c">*</i>
-                  <input type="text" name="achternaam" id="achternaam" class="name-input" />
-                  <p class="error" id="err_achternaam"></p>
-                </label>
- 
-                <label>
-                  E-mailadres: <i style="color: #c40d4c">*</i>
-                  <input type="text" name="email" id="email" class="name-input" />
-                  <p class="error" id="err_email"></p>
-                </label>
+              <label>
+                Voornaam: <i style="color: #c40d4c">*</i>
+                <input type="text" name="voornaam" id="voornaam" class="name-input" />
+                <p class="error" id="err_voornaam"></p>
+              </label>
 
-                <label>
-                  Examenjaar:
-                  <input type="number" name="examenjaar" id="examenjaar" class="name-input" value="1985" />
-                  <p class="error" id="err_examenjaar"></p>
-                </label>
- 
-          </div>
-          <div class="medium-6 columns field" data-equalizer-watch>
- 
-                <label>
-                  Huidige beroep:
-                  <input type="text" name="beroep" class="name-input" />
-                </label>
- 
-                <legend>Wanneer bezoekt u de reunie:<i style="color: #c40d4c">*</i></legend>
-                <label>
-                  Vrijdag 18 maart 2016
-                  <input type="checkbox" name="vrijdag" id="vrijdag"><br />
-                </label>
- 
-                <label>
-                  Zaterdag 19 maart 2016
-                  <input type="checkbox" name="zaterdag" id="zaterdag" onclick="updateScreen();"><br />
-                </label>
+              <label>
+                Achternaam: <i style="color: #c40d4c">*</i>
+                <input type="text" name="achternaam" id="achternaam" class="name-input" />
+                <p class="error" id="err_achternaam"></p>
+              </label>
 
-                <label style="padding-left: 1em; margin-top: -0.8em;">
-                  <input type="checkbox" name="les" id="les" disabled>Ja, ik bezoek ook graag de les van dhr. J.M. van Weele in het
-                  oude gymnasium
-                </label>
+              <label>
+                E-mailadres: <i style="color: #c40d4c">*</i>
+                <input type="text" name="email" id="email" class="name-input" />
+                <p class="error" id="err_email"></p>
+              </label>
+
+              <label>
+                Examenjaar:
+                <input type="number" name="examenjaar" id="examenjaar" class="name-input" value="1985" />
+                <p class="error" id="err_examenjaar"></p>
+              </label>
  
-                <p class="error" id="err_dag"></p>
- 
-                <div class="g-recaptcha" style="width: 100%; height: 5em;" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
- 
-                <div class="padding-top-1"></div>
- 
-                <input type="button" class="button green" value="Versturen" class="button"
-                       style="margin-bottom: 0;" onclick="validate();"/>
-                       <p class="error" id="err_submit"></p>
-                </div>
-              </form>
             </div>
+            <div class="medium-6 columns field" data-equalizer-watch>
+
+              <label>
+                Huidige beroep:
+                <input type="text" name="beroep" class="name-input" />
+              </label>
  
-        <?php else: ?>
+              <legend>Wanneer bezoekt u de reunie:<i style="color: #c40d4c">*</i></legend>
+              <label>
+                Vrijdag 18 maart 2016
+                <input type="checkbox" name="vrijdag" id="vrijdag"><br />
+              </label>
  
-              <?php
-                require_once 'resources/includes/MySQL_Manager.php';
-                $mysql = new MySQL_Manager();
+              <label>
+                Zaterdag 19 maart 2016
+                <input type="checkbox" name="zaterdag" id="zaterdag" onclick="updateScreen();"><br />
+              </label>
+
+              <label style="padding-left: 1em; margin-top: -0.8em;">
+                <input type="checkbox" name="les" id="les" disabled>
+                Ja, ik bezoek ook graag de les van dhr. J.M. van Weele in het oude gymnasium
+              </label>
  
-                try {
-                    $mysql->connect();
-                    $mysql->insertNewSubscription($_POST["voornaam"],
-                      $_POST["achternaam"], $_POST['email'], $_POST["examenjaar"],
-                      $_POST['beroep'], $_POST['vrijdag'],
-                      $_POST['zaterdag'], $_POST['les']);
-                    $mysql->closeConnection();
-                } catch (\Exception $e) {
-                    echo $e->getMessage();
-                }
+              <p class="error" id="err_dag"></p>
  
-                // Sending bevestigingsmail
-                $to = $_POST["email"];
-                $subject = "Bevestiging inschrijving Nehalenniareünie";
-                $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleert u alstublieft of onderstaande gegevens kloppen:<br><br>";
-                $message .= "U komt op ";
+              <div class="g-recaptcha" style="width: 100%; height: 5em;" data-sitekey="<?php echo $config["captcha-sitekey"] ?>"></div>
  
-                if ($_POST['vrijdag'])
-                {
-                    $message .= "vrijdag";
-                }
-                if ($_POST['vrijdag'] && $_POST['zaterdag'])
-                {
-                    $message .= " en ";
-                }
-                if ($_POST['zaterdag'])
-                {
-                    $message .= "zaterdag";
-                }
-                if ($_POST['les'])
-                {
-                    $message .= ".<br>U bezoekt zaterdag ook de de les van dhr. J.M. van Weele";
-                }
-                $message .= ".<br>U heeft examen gedaan in "
-                  .$_POST["examenjaar"].".";
-                $message .= "<br><br>Vriendelijke groeten,<br>SSG Nehalennia<br><br><i>Dit is een automatisch gegenereerd bericht waarop u niet kunt reageren. Klopt er iets niet of heeft u vragen, aarzel niet om contact op te nemen via <a href=\"mailto:info@nehalenniareunie.nl\">info@nehalenniareunie.nl</a>.</i>";
+              <div class="padding-top-1"></div>
  
-                require 'resources/mail/PHPMailerAutoload.php';
-                $config = include 'config/config.php';
+              <input type="button" class="button green" value="Versturen"
+                       style="margin-bottom: 0;" onclick="validate();"/>
+              <p class="error" id="err_submit"></p>
+            </div>
+          </form>
+        </div>
  
-                $mail = new PHPMailer;
+<?php else: ?>
  
-                $mail->isSMTP();
-                $mail->Host = $config['mail-host'];
-                $mail->SMTPAuth = true;
-                $mail->Username = $config['mail-user'];
-                $mail->Password = $config['mail-password'];
-                $mail->SMTPSecure = $config['mail-smtp-secure'];
-                $mail->Port = $config['mail-smtp-port'];
+        <?php
+          require_once 'resources/includes/MySQL_Manager.php';
+          $mysql = new MySQL_Manager();
  
-                $mail->setFrom($config['mail-user'], $config['mail-name']);
-                $mail->addAddress($to, ($_POST["voornaam"]." "
-                  .$_POST["achternaam"]));
-                $mail->addReplyTo($config['mail-reply-to'], $config['mail-reply-to-name']);
+          try {
+              $mysql->connect();
+              $mysql->insertNewSubscription($_POST["voornaam"],
+                $_POST["achternaam"], $_POST['email'], $_POST["examenjaar"],
+                $_POST['beroep'], $_POST['vrijdag'],
+                $_POST['zaterdag'], $_POST['les']);
+              $mysql->closeConnection();
+          } catch (\Exception $e) {
+              echo $e->getMessage();
+          }
  
-                $mail->isHTML(true);
-                $mail->CharSet="UTF-8";
+          // Sending bevestigingsmail
+          $to = $_POST["email"];
+          $subject = "Bevestiging inschrijving Nehalenniareünie";
+          $message = "Beste ".$_POST["voornaam"]." ".$_POST["achternaam"].",<br><br>Bedankt voor uw inschrijving. Uw inschrijving is pas definitief als u €15,- euro heeft overgemaakt:<br>Rekeningnummer: NL25 ABNA **** **** **<br>t.n.v. Stichting OVO Walcheren<br>o.v.v. 650 jaar Gymnasium + naam.<br><br>Controleert u alstublieft of onderstaande gegevens kloppen:<br><br>";
+          $message .= "U komt op ";
  
-                $mail->Subject = $subject;
-                $mail->Body = $message;
-                $mail->AltBody = $mail->Body;
+          if ($_POST['vrijdag'])
+          {
+              $message .= "vrijdag";
+          }
+          if ($_POST['vrijdag'] && $_POST['zaterdag'])
+          {
+              $message .= " en ";
+          }
+          if ($_POST['zaterdag'])
+          {
+              $message .= "zaterdag";
+          }
+          if ($_POST['les'])
+          {
+              $message .= ".<br>U bezoekt zaterdag ook de de les van dhr. J.M. van Weele";
+          }
+          $message .= ".<br>U heeft examen gedaan in "
+            .$_POST["examenjaar"].".";
+          $message .= "<br><br>Vriendelijke groeten,<br>SSG Nehalennia<br><br><i>Dit is een automatisch gegenereerd bericht waarop u niet kunt reageren. Klopt er iets niet of heeft u vragen, aarzel niet om contact op te nemen via <a href=\"mailto:info@nehalenniareunie.nl\">info@nehalenniareunie.nl</a>.</i>";
  
-                if (!$mail->send())
-                {
-                  echo 'Mail is niet verzonden, probeer het nog een keer';
-                }
-              ?>
-                <p>Bedankt voor uw inschrijving!</p>
-            <?php endif; ?>
-                </div>
+          require 'resources/mail/PHPMailerAutoload.php';
+          $config = include 'config/config.php';
  
-          </div>
+          $mail = new PHPMailer;
  
+          $mail->isSMTP();
+          $mail->Host = $config['mail-host'];
+          $mail->SMTPAuth = true;
+          $mail->Username = $config['mail-user'];
+          $mail->Password = $config['mail-password'];
+          $mail->SMTPSecure = $config['mail-smtp-secure'];
+          $mail->Port = $config['mail-smtp-port'];
+ 
+          $mail->setFrom($config['mail-user'], $config['mail-name']);
+          $mail->addAddress($to, ($_POST["voornaam"]." "
+            .$_POST["achternaam"]));
+          $mail->addReplyTo($config['mail-reply-to'], $config['mail-reply-to-name']);
+ 
+          $mail->isHTML(true);
+          $mail->CharSet="UTF-8";
+ 
+          $mail->Subject = $subject;
+          $mail->Body = $message;
+          $mail->AltBody = $mail->Body;
+ 
+          if (!$mail->send())
+          {
+            echo 'Mail is niet verzonden, probeer het nog een keer';
+          }
+        ?>
+        <p>Bedankt voor uw inschrijving!</p>
+<?php endif; ?>
       </div>
+ 
     </div>
  
     <?php
