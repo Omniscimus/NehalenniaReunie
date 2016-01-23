@@ -249,7 +249,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
           } catch (\Exception $e) {
               echo $e->getMessage();
           }
- 
+/* 
           // Sending bevestigingsmail
           $to = $_POST["email"];
           $subject = "Bevestiging inschrijving Nehalenniareünie";
@@ -304,7 +304,8 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
           if (!$mail->send())
           {
             echo 'Mail is niet verzonden, probeer het nog een keer';
-          }
+					}
+*/
         ?>
         <p>Bedankt voor uw inschrijving!</p>
 <?php endif; ?>
