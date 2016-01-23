@@ -14,7 +14,8 @@ class MySQL_Manager {
      */
     function closeConnection() {
         if (isset($this->connection)) {
-            $this->connection->close();
+            //$this->connection->close();
+            mysql_close($this->connection);
         }
     }
 
@@ -25,9 +26,11 @@ class MySQL_Manager {
      */
     function connect() {
         $config = include 'config/config.php';
-        $connection = new \mysqli(
-                $config["mysql-host"], $config["mysql-user"], $config["mysql-password"], $config["mysql-database"], $config["mysql-port"]);
-        $connection->query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE
+//        $connection = new \mysqli(
+//                $config["mysql-host"], $config["mysql-user"], $config["mysql-password"], $config["mysql-database"], $config["mysql-port"]);
+        $connection = mysql_connect($config["mysql-host"], $config["mysql-user"], $config["mysql-password"]) or die(mysql_error());
+        mysql_select_db($config["mysql-database"]) or die(mysql_error());
+        mysql_query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE
 AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32), email
 VARCHAR(48), examenjaar SMALLINT UNSIGNED, beroep VARCHAR(32), vrijdag
 TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
@@ -50,11 +53,17 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
      */
     function insertNewSubscription($voornaam, $achternaam, $email, $examenjaar,
                                    $beroep, $vrijdag, $zaterdag, $les) {
-        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
-          vrijdag, zaterdag, les) VALUES (?, ?, ?, ?, ?, ?, ?);");
-        $statement->bind_param("sssisiii", $voornaam, $achternaam,
-          $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
-        $statement->execute();
+        $sql = sprintf("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
+          vrijdag, zaterdag, les) VALUES ('%s', '%s', '%s', %u, '%s', %u, %u, %u);",
+                $voornaam, $achternaam, $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
+        mysql_query($sql);
+        //$sql = "INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
+        //  vrijdag, zaterdag, les) VALUES ($voornaam, $achternaam, $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);";
+//        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
+//          vrijdag, zaterdag, les) VALUES (?, ?, ?, ?, ?, ?, ?);");
+//        $statement->bind_param("sssisiii", $voornaam, $achternaam,
+//          $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
+//        $statement->execute();
     }
 
     /**
@@ -63,8 +72,9 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
      * @return mysqli_result de gegevens van de ingeschreven personen
      */
     function getResults() {
-        return $this->connection->query("SELECT voornaam, achternaam,
-        examenjaar, beroep, vrijdag, zaterdag FROM inschrijvingen;");
+        return mysql_query("SELECT * FROM inschrijvingen");
+//        return $this->connection->query("SELECT voornaam, achternaam,
+//        examenjaar, beroep, vrijdag, zaterdag FROM inschrijvingen;");
     }
 
 }

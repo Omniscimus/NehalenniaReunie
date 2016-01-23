@@ -235,12 +235,16 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
           require_once 'resources/includes/MySQL_Manager.php';
           $mysql = new MySQL_Manager();
  
+          $vrijdag = ($_POST['vrijdag'] == 'on') ? 1 : 0;
+          $zaterdag = ($_POST['zaterdag'] == 'on') ? 1 : 0;
+          $les = ($_POST['les'] == 'on') ? 1 : 0;
+          
           try {
               $mysql->connect();
               $mysql->insertNewSubscription($_POST["voornaam"],
                 $_POST["achternaam"], $_POST['email'], $_POST["examenjaar"],
-                $_POST['beroep'], $_POST['vrijdag'],
-                $_POST['zaterdag'], $_POST['les']);
+                $_POST['beroep'], $vrijdag,
+                $zaterdag, $les);
               $mysql->closeConnection();
           } catch (\Exception $e) {
               echo $e->getMessage();

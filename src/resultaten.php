@@ -35,10 +35,12 @@
             <tr>
               <th>Voornaam</th>
               <th>Achternaam</th>
+              <th>Email</th>
               <th>Examenjaar</th>
               <th>Beroep</th>
               <th>Vrijdag</th>
               <th>Zaterdag</th>
+              <th>Les</th>
             </tr>
             <?php
             require_once 'resources/includes/MySQL_Manager.php';
@@ -48,21 +50,33 @@
                 $results = $mysql->getResults();
                 $mysql->closeConnection();
 
-                if ($results->num_rows > 0) {
-                    while ($row = $results->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>"
-                          . $row["voornaam"]   . "</td><td>"
-                          . $row["achternaam"] . "</td><td>"
-                          . $row["examenjaar"] . "</td><td>"
-                          . $row["beroep"]     . "</td><td>"
-                          . $row["vrijdag"]    . "</td><td>"
-                          . $row["zaterdag"]   . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "Er zijn nog geen inschrijvingen.";
+                while ( $row = mysql_fetch_row($results) ) {
+                    echo "<tr>";
+                    echo "<td>$row[1]</td>";
+                    echo "<td>$row[2]</td>";
+                    echo "<td>$row[3]</td>";
+                    echo "<td>$row[4]</td>";
+                    echo "<td>$row[5]</td>";
+                    echo "<td>$row[6]</td>";
+                    echo "<td>$row[7]</td>";
+                    echo "<td>$row[8]</td>";
+                    echo "</tr>";
                 }
+//                if ($results->num_rows > 0) {
+//                    while ($row = $results->fetch_assoc()) {
+//                        echo "<tr>";
+//                        echo "<td>"
+//                          . $row["voornaam"]   . "</td><td>"
+//                          . $row["achternaam"] . "</td><td>"
+//                          . $row["examenjaar"] . "</td><td>"
+//                          . $row["beroep"]     . "</td><td>"
+//                          . $row["vrijdag"]    . "</td><td>"
+//                          . $row["zaterdag"]   . "</td>";
+//                        echo "</tr>";
+//                    }
+//                } else {
+//                    echo "Er zijn nog geen inschrijvingen.";
+//                }
             } catch (\Exception $e) {
                 echo $e->getMessage();
             }
