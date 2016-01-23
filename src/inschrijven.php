@@ -29,7 +29,7 @@ if (is_string($_POST["achternaam"])) {
 if (is_string($_POST["email"])) {
   $input_valid++;
 }
-if (isset($_POST['dag']))
+if (isset($_POST['vrijdag']) || isset($_POST['zaterdag']))
 {
   $input_valid++;
 }
@@ -156,7 +156,7 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 klikken.
               </div>
 
-  <?php elseif ($input_valid !== 0): ?>
+  <?php elseif ($input_valid !== 4 && $input_valid !== 0): ?>
 
               <div class="warning">Gelieve alle velden in te vullen.</div>
 
