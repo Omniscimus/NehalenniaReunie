@@ -51,15 +51,18 @@
                 $mysql->closeConnection();
 
                 while ( $row = mysql_fetch_row($results) ) {
-                    echo "<tr>";
+                    $vrijdag = ($row[6] == 1) ? 'Ja' : 'Nee';
+                    $zaterdag = ($row[7] == 1) ? 'Ja' : 'Nee';
+                    $les = ($row[8] == 1) ? 'Ja' : 'Nee';
+										echo "<tr>";
                     echo "<td>$row[1]</td>";
                     echo "<td>$row[2]</td>";
                     echo "<td>$row[3]</td>";
                     echo "<td>$row[4]</td>";
                     echo "<td>$row[5]</td>";
-                    echo "<td>$row[6]</td>";
-                    echo "<td>$row[7]</td>";
-                    echo "<td>$row[8]</td>";
+                    echo "<td>$vrijdag</td>";
+                    echo "<td>$zaterdag</td>";
+                    echo "<td>$les</td>";
                     echo "</tr>";
                 }
 //                if ($results->num_rows > 0) {
