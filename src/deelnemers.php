@@ -26,6 +26,25 @@
             <th>Examenjaar</th>
           </tr>
 
+          <?php
+            require_once 'resources/includes/MySQL_Manager.php';
+            $mysql = new MySQL_Manager();
+            try {
+                $mysql->connect();
+                $results = $mysql->getSubs();
+                $mysql->closeConnection();
+
+                while ( $row = mysql_fetch_row($results) ) {
+		    echo "<tr>";
+                    echo "<td>$row[0] $row[1]</td>";
+                    echo "<td style=\"text-align: center\">$row[2]</td>";
+                    echo "</tr>";
+                }
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+            }
+          ?>
+
         </table>
       </div>
 

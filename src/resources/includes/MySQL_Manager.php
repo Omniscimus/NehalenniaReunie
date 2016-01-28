@@ -77,4 +77,13 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
 //        examenjaar, beroep, vrijdag, zaterdag FROM inschrijvingen;");
     }
 
+    /**
+     * Geeft een query met de voornaam, achternaam en het examenjaar van de ingeschreven deelnemers
+     *
+     * @return
+     */
+    function getSubs() {
+        return mysql_query("SELECT voornaam, achternaam, examenjaar FROM inschrijvingen ORDER BY examenjaar");
+    }
+
 }
