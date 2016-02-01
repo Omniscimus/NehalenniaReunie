@@ -15,11 +15,23 @@
 
       <div class="medium-12 columns field">
         <p>
-          Hieronder ziet u de oud-leerlingen die zich al hebben ingeschreven voor de reünie.
+          Hieronder ziet u de docenten en leerlingen die zich al hebben ingeschreven voor de reünie.
         </p>
       </div>
 
       <div class="medium-12 columns field" style="padding: 0;">
+        <h5 style="text-align: center;">Docenten</h5>
+        <table style="width: 100%; margin:0;">
+          <?php
+            foreach ($cms_config['docenten'] as $docent) {
+                echo "<tr><td>$docent</td></tr>";
+            }
+          ?>
+        </table>
+      </div>
+
+      <div class="medium-12 columns field" style="padding: 0;">
+        <h5 style="text-align: center;">Leerlingen</h5>
         <table style="width: 100%; margin:0;">
           <tr>
             <th width="80%">Naam</th>
