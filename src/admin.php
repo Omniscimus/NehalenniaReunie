@@ -77,6 +77,17 @@ function defancify($string) {
                 + '<input type="text" name="contactgegevens[]" value="' + gegeven + '" />';
         return newElement;
       }
+
+      // Houdt bij hoeveel docenten-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
+      var docentenCount = 0;
+      function createDocentenElement(docent) {
+        docentenCount = docentenCount + 1;
+        var newElement = document.createElement('div');
+        newElement.innerHTML =
+                createMinusButton(docentenCount)
+                + '<input type="text" name="docenten[]" value="' + docent + '" />';
+        return newElement;
+      }
     </script>
 
   </head>
@@ -117,6 +128,18 @@ function defancify($string) {
             <!-- Heeft net correct wachtwoord ingevuld. Toon het formulier voor het bewerken van cms_config.php. -->
 
             <form action="admin.php" method="post">
+
+              <h5>Deelnemende docenten</h5>
+              <div id="docentendiv">
+                <script>
+                  <?php
+                  foreach ($cms_config["docenten"] as $docent) {
+                    echo "document.getElementById('docentendiv').appendChild(createDocentenElement('$docent'));";
+                  }
+                  ?>
+                </script>
+              </div>
+              <input type="button" onclick="document.getElementById('docentendiv').appendChild(createDocentenElement(''))" value="+" />
 
               <h5>Tekst voorpagina</h5>
               <textarea name="homepage-tekst" style="height: 300px;"><?php echo defancify($cms_config["homepage-tekst"]); ?></textarea>
@@ -220,6 +243,11 @@ function defancify($string) {
               $contactgegevens = $contactgegevens . "'$gegeven',";
             }
 
+            $docenten = "";
+            foreach ($_POST['docenten'] as $docent) {
+              $docenten .= "'$docent',";
+            }
+
             // Beschouw de cms-config-template als een bestand en open het
             $template = file_get_contents("config/cms-config-template.txt");
             // Vervang alle template stukjes door de zojuist verwerkte gegevens
@@ -232,13 +260,14 @@ function defancify($string) {
             $template = str_replace("_contactgegevens_", $contactgegevens, $template);
             $template = str_replace("_ovreis_", fancify($_POST["ovreis"]), $template);
             $template = str_replace("_autoreis_", fancify($_POST["autoreis"]), $template);
+            $template = str_replace("_docenten_", $docenten, $template);
 
             // Schrijf de gemaakte config naar cms-config.php; overwrite existing.
             $handle = fopen("config/cms-config.php", 'w');
             fwrite($handle, $template);
             fclose($handle);
             ?>
-            <p>De gegevens zijn geüpdated.</p>
+            <p>De gegevens zijn geüpdate.</p>
           <?php endif; ?>
         </div>
       </div>

@@ -20,6 +20,10 @@ return array(
 
   'agenda' => array(
     _agenda_
+  ),
+
+  'docenten' => array(
+    _docenten_
   )
 
 );

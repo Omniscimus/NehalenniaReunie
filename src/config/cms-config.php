@@ -28,6 +28,11 @@ return array(
     array("09:00 - 13:30" , "Luisteren naar FDO"),
     array("09:01 - 10:00" , "Adempauze"),
     array("10:01 - 10:30" , "Borrel"),
+  ),
+
+  'docenten' => array(
+    'Docent 1',
+    'Docent 2'
   )
 
 );
