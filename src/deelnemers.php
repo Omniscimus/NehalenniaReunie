@@ -22,9 +22,19 @@
       <div class="medium-12 columns field" style="padding: 0;">
         <h5 style="text-align: center;">Docenten</h5>
         <table style="width: 100%; margin:0;">
+          <tr>
+            <th>Naam</th>
+            <th>Docent</th>
+            <th>Oud-docent</th>
+          </tr>
           <?php
-            foreach ($cms_config['docenten'] as $docent) {
-                echo "<tr><td>$docent</td></tr>";
+            foreach ($cms_config['docenten'] as $docent => $is_oud_docent) {
+                echo "<tr><td>$docent</td><td style=\"text-align: center; width: 100px;\">";
+                if ($is_oud_docent) {
+                  echo '</td><td style="text-align: center; width: 100px;">✓</td></tr>';
+                } else {
+                  echo '✓</td><td></td></tr>';
+                }
             }
           ?>
         </table>

@@ -33,6 +33,8 @@ function defancify($string) {
         }
       }
 
+      var count = 0;
+
       // Haalt een element weg, aangeroepen als er op de - gedrukt wordt
       function minus(id) {
         document.getElementById(id).parentElement.remove();
@@ -44,48 +46,54 @@ function defancify($string) {
       }
 
       // Houdt bij hoeveel FAQ-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
-      var faqCount = 0;
       function createFAQElement(vraag, antwoord) {
-        faqCount = faqCount + 1;
+        count = count + 1;
         var newElement = document.createElement('div');
         newElement.innerHTML =
-                createMinusButton(faqCount)
+                createMinusButton(count)
                 + '<input type="text" name="vragen[]" value="' + vraag + '" />'
                 + '<textarea name="antwoorden[]" >' + antwoord + '</textarea>';
         return newElement;
       }
 
       // Houdt bij hoeveel agenda-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
-      var agendaCount = 0;
       function createAgendaElement(time, activity) {
-        agendaCount = agendaCount + 1;
+        count = count + 1;
         var newElement = document.createElement('div');
         newElement.innerHTML =
-                createMinusButton(agendaCount)
+                createMinusButton(count)
                 + '<input type="text" name="agendatijden[]" value="' + time + '" />'
                 + '<textarea name="agendapunten[]" >' + activity + '</textarea>';
         return newElement;
       }
 
       // Houdt bij hoeveel agenda-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
-      var gegevensCount = 0;
       function createGegevensElement(gegeven) {
-        gegevensCount = gegevensCount + 1;
+        count = count + 1;
         var newElement = document.createElement('div');
         newElement.innerHTML =
-                createMinusButton(gegevensCount)
+                createMinusButton(count)
                 + '<input type="text" name="contactgegevens[]" value="' + gegeven + '" />';
         return newElement;
       }
 
       // Houdt bij hoeveel docenten-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
-      var docentenCount = 0;
       function createDocentenElement(docent) {
-        docentenCount = docentenCount + 1;
+        count = count + 1;
         var newElement = document.createElement('div');
         newElement.innerHTML =
-                createMinusButton(docentenCount)
+                createMinusButton(count)
                 + '<input type="text" name="docenten[]" value="' + docent + '" />';
+        return newElement;
+      }
+
+      // Houdt bij hoeveel oud-docenten-secties erbij zijn geplust (gaat niet omlaag als er op een - gedrukt wordt)
+      function createOudDocentenElement(docent) {
+        count = count + 1;
+        var newElement = document.createElement('div');
+        newElement.innerHTML =
+                createMinusButton(count)
+                + '<input type="text" name="ouddocenten[]" value="' + docent + '" />';
         return newElement;
       }
     </script>
@@ -129,17 +137,33 @@ function defancify($string) {
 
             <form action="admin.php" method="post">
 
-              <h5>Deelnemende docenten</h5>
+              <h5>Deelnemende oud-docenten</h5>
               <div id="docentendiv">
                 <script>
                   <?php
-                  foreach ($cms_config["docenten"] as $docent) {
-                    echo "document.getElementById('docentendiv').appendChild(createDocentenElement('$docent'));";
+                  foreach ($cms_config["docenten"] as $docent => $is_oud_docent) {
+                    if ($is_oud_docent) {
+                      echo "document.getElementById('docentendiv').appendChild(createDocentenElement('$docent'));";
+                    }
                   }
                   ?>
                 </script>
               </div>
-              <input type="button" onclick="document.getElementById('docentendiv').appendChild(createDocentenElement(''))" value="+" />
+              <input type="button" onclick="document.getElementById('docentendiv').appendChild(createDocentenElement('', false))" value="+" />
+
+              <h5>Deelnemende docenten</h5>
+              <div id="ouddocentendiv">
+                <script>
+                  <?php
+                  foreach ($cms_config["docenten"] as $docent => $is_oud_docent) {
+                    if (!$is_oud_docent) {
+                      echo "document.getElementById('ouddocentendiv').appendChild(createOudDocentenElement('$docent'));";
+                    }
+                  }
+                  ?>
+                </script>
+              </div>
+              <input type="button" onclick="document.getElementById('ouddocentendiv').appendChild(createOudDocentenElement('', false))" value="+" />
 
               <h5>Tekst voorpagina</h5>
               <textarea name="homepage-tekst" style="height: 300px;"><?php echo defancify($cms_config["homepage-tekst"]); ?></textarea>
@@ -244,8 +268,11 @@ function defancify($string) {
             }
 
             $docenten = "";
+            foreach ($_POST['ouddocenten'] as $docent) {
+              $docenten .= "'$docent' => false,";
+            }
             foreach ($_POST['docenten'] as $docent) {
-              $docenten .= "'$docent',";
+              $docenten .= "'$docent' => true,";
             }
 
             // Beschouw de cms-config-template als een bestand en open het

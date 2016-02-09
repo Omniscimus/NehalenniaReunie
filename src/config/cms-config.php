@@ -31,8 +31,8 @@ return array(
   ),
 
   'docenten' => array(
-    'Docent 1',
-    'Docent 2'
+    'Docent 1' => true,
+    'Docent 2' => false
   )
 
 );
