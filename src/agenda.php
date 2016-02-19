@@ -21,7 +21,7 @@
 
       <div class="medium-12 columns field">
         <p>
-          Hieronder ziet u een schema van de dagen van de reünie.
+          Hieronder ziet u een schema van de dagen van de reünie. U kunt ook een flyer downloaden met meer informatie over het programma door op <a href="reunie_klein.pdf" target="_blank">deze link</a> te klikken.
         </p>
       </div>
 
