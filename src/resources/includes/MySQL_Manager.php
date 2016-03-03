@@ -31,7 +31,7 @@ class MySQL_Manager {
         $connection = mysql_connect($config["mysql-host"], $config["mysql-user"], $config["mysql-password"]) or die(mysql_error());
         mysql_select_db($config["mysql-database"]) or die(mysql_error());
         mysql_query("CREATE TABLE IF NOT EXISTS inschrijvingen (id SMALLINT UNSIGNED UNIQUE
-AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(32), email
+AUTO_INCREMENT NOT NULL, voornaam VARCHAR(32), achternaam VARCHAR(60), email
 VARCHAR(48), examenjaar SMALLINT UNSIGNED, beroep VARCHAR(32), vrijdag
 TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
         if ($connection->connect_error) {
@@ -53,6 +53,15 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
      */
     function insertNewSubscription($voornaam, $achternaam, $email, $examenjaar,
                                    $beroep, $vrijdag, $zaterdag, $les) {
+        $voornaam = htmlspecialchars($voornaam, ENT_QUOTES);
+        $achternaam = htmlspecialchars($achternaam, ENT_QUOTES);
+        $email = htmlspecialchars($email, ENT_QUOTES);
+        $examenjaar = htmlspecialchars($examenjaar, ENT_QUOTES);
+        $beroep = htmlspecialchars($beroep, ENT_QUOTES);
+        $vrijdag = htmlspecialchars($vrijdag, ENT_QUOTES);
+        $zaterdag = htmlspecialchars($zaterdag, ENT_QUOTES);
+        $les = htmlspecialchars($les, ENT_QUOTES);
+
         $sql = sprintf("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
           vrijdag, zaterdag, les) VALUES ('%s', '%s', '%s', %u, '%s', %u, %u, %u);",
                 $voornaam, $achternaam, $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
