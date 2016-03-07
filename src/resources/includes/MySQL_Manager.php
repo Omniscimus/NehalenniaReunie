@@ -85,6 +85,10 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
 //        return $this->connection->query("SELECT voornaam, achternaam,
 //        examenjaar, beroep, vrijdag, zaterdag FROM inschrijvingen;");
     }
+    function getSubsByDay()
+    {
+        return mysql_query("SELECT vrijdag, zaterdag, les FROM inschrijvingen");
+    }
 
     /**
      * Geeft een query met de voornaam, achternaam en het examenjaar van de ingeschreven deelnemers
