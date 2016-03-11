@@ -1,6 +1,6 @@
 <?php
 function captcha_is_valid($g_recaptcha_response) {
-    if (!isset($g_recaptcha_response)) {
+		if (!isset($g_recaptcha_response)) {
         return false;
     }
     $config = include 'config/config.php';
@@ -68,12 +68,12 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
                 document.getElementById("err_dag").innerHTML = "Kies minstens één dag.";
                 errors += 1;
             }
-            var year = document.getElementById("examenjaar").value;
-            if (year < 1900 || year > 2016)
-            {
-                document.getElementById("err_jaar").innerHTML = "Kies a.u.b. het goede examenjaar.";
-                errors += 1;
-            }
+            //var year = document.getElementById("examenjaar").value;
+            //if (year < 1900 || year > 2016)
+            //{
+            //    document.getElementById("err_jaar").innerHTML = "Kies a.u.b. het goede examenjaar.";
+            //    errors += 1;
+            //}
  
             if (errors == 0)
             {
@@ -237,12 +237,13 @@ $captcha_valid = captcha_is_valid($_POST["g-recaptcha-response"]);
  
           $vrijdag = ($_POST['vrijdag'] == 'on') ? 1 : 0;
           $zaterdag = ($_POST['zaterdag'] == 'on') ? 1 : 0;
-          $les = ($_POST['les'] == 'on') ? 1 : 0;
-          
+					$les = ($_POST['les'] == 'on') ? 1 : 0;
+					$examenjaar = (intval($_POST["examenjaar"]) != 0 && intval($_POST["examenjaar"]) != 1 && intval($_POST["examenjaar"]) > 1900) ? $_POST["examenjaar"] : null;
+
           try {
               $mysql->connect();
               $mysql->insertNewSubscription($_POST["voornaam"],
-                $_POST["achternaam"], $_POST['email'], $_POST["examenjaar"],
+                $_POST["achternaam"], $_POST['email'], $examenjaar,
                 $_POST['beroep'], $vrijdag,
                 $zaterdag, $les);
               $mysql->closeConnection();

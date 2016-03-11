@@ -58,8 +58,12 @@
 
                 while ( $row = mysql_fetch_row($results) ) {
 		    echo "<tr>";
-                    echo "<td>$row[0] $row[1]</td>";
-                    echo "<td style=\"text-align: center\">$row[2]</td>";
+										echo "<td>$row[0] $row[1]</td>";
+										if ($row[2] != 0) {
+											echo "<td style=\"text-align: center\">$row[2]</td>";
+										} else {
+											echo "<td style=\"text-align: center\"></td>";
+										}
                     echo "</tr>";
                 }
             } catch (\Exception $e) {

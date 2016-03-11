@@ -65,7 +65,7 @@ TINYINT(1), zaterdag TINYINT(1), les TINYINT(1));");
         $sql = sprintf("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
           vrijdag, zaterdag, les) VALUES ('%s', '%s', '%s', %u, '%s', %u, %u, %u);",
                 $voornaam, $achternaam, $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);
-        mysql_query($sql);
+				mysql_query($sql);
         //$sql = "INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
         //  vrijdag, zaterdag, les) VALUES ($voornaam, $achternaam, $email, $examenjaar, $beroep, $vrijdag, $zaterdag, $les);";
 //        $statement = $this->connection->prepare("INSERT INTO inschrijvingen (voornaam, achternaam, email, examenjaar, beroep,
