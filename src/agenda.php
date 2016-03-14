@@ -22,7 +22,17 @@
       <div class="medium-12 columns field">
         <p>
           Hieronder ziet u een schema van de dagen van de reünie. U kunt ook een flyer downloaden met meer informatie over het programma door op <a href="reunie_klein.pdf" target="_blank">deze link</a> te klikken.
-        </p>
+				</p>
+				<p style="text-align: center; font-weight: bold;">
+					ALLE ACTIVITEITEN VINDEN PLAATS OP DE LOCATIE BREEWEG VAN STEDELIJKE SCHOLENGEMEENSCHAP NEHALENNIA:
+					<br><br>
+					BREEWEG 71<sup>E</sup>
+					<br>
+					MIDDELBURG
+				</p>
+				<p>
+					(Parkeermogelijkheden: achterzijde school in de Burgemeester Smytegeldlaan, parkeerterrein Sportcomplex De Sprong (tegenover de ingang van de school.))
+				</p>
       </div>
 
       <div class="medium-12 columns field" style="padding: 0;">
